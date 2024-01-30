@@ -5,6 +5,8 @@ import WeightCard from './components/weight_card'
 import VaccineCard from './components/vaccine_card'
 import Navbar from './components/navbar'
 import SupervisionCard from './components/supervision_card'
+import Header from './components/header'
+import GraphCard from './components/graph_card'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +22,9 @@ function App() {
       <SupervisionCard/>
 
       <Navbar/>
+
+      <Header/>
+      <GraphCard/>
 
     </>
   )
