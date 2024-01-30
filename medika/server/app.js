@@ -1,6 +1,8 @@
 // server/app.js
-const express = require('express');
+import express from 'express';
+
 const app = express();
+app.use(express.json());
 
 // Importez vos routes ici
 // const someRoute = require('./routes/someRoute');
@@ -17,4 +19,4 @@ app.listen(PORT, () => {
 
 // ...
 
-module.exports = app;
+export default app;
