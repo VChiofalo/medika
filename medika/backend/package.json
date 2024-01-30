@@ -1,0 +1,15 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend du proket medika",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vincent Chiofalo / Erwan Mazeas / Frédéric Vamer / Alex Fraioli / Marieme Aidara",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
