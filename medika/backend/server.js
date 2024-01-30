@@ -1,20 +1,20 @@
-import express from 'express';
-const app = express();
-app.use(express.json());
+    import express from 'express';
+    const app = express();
+    app.use(express.json());
 
-// Importez vos routes ici
-// const someRoute = require('./routes/someRoute');
+    // Importez vos routes ici
+    // const someRoute = require('./routes/someRoute');
 
-app.use(express.json());
+    app.use(express.json());
 
-// Utilisez vos routes ici
-// app.use('/api/some-path', someRoute);
+    // Utilisez vos routes ici
+    // app.use('/api/some-path', someRoute);
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Serveur en écoute sur le port ${PORT}`);
-});
+    const PORT = process.env.PORT || 3001;
+    app.listen(PORT, () => {
+    console.log(`Serveur en écoute sur le port ${PORT}`);
+    });
 
-// ...
+    // ...
 
-export default app;
+    export default app;

@@ -1,26 +1,29 @@
 import 'dotenv/config';
-import con from '../app/database_sql.js';
+import mysql from 'mysql2/promise';
+// import con from '../app/database_sql.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const allSql = [];
-fs.readdir('./data/', (err, files) => {
-    if (err) {
-        console.error('Erreur lors de la lecture du répertoire :', err);
-        return;
-    }
-    // Filtrer les fichiers ayant l'extension .sql
-    const sqlFiles = files.filter(file => path.extname(file) === '.sql');
-
-    sqlFiles.forEach(sqlFile => {
-        const sqlQuery = fs.readFileSync(path.join(__dirname, sqlFile), 'utf-8');
-
-        // Exécuter le script SQL lu depuis le fichier
-        allSql.push(con.promise().query(sqlQuery).catch(()=>{}));
+(async () => {
+    const connection = await mysql.createConnection({
+        host: process.env.DB_HOST, 
+        user: process.env.DB_USER, 
+        password: process.env.DB_PASSWORD, 
+        database: process.env.DB_NAME
     });
-    // on quitte le processus quand toute les requetes ont été eecutée
-    Promise.all(allSql).then((values) => { process.exit(); });
-});
+
+    const scriptPath = path.join(__dirname, 'initiatedatabase.sql');
+    const scriptSQL = fs.readFileSync(scriptPath, 'utf-8');
+
+    try {
+        await connection.query(scriptSQL);
+        console.log('La base de données a été initialisée avec succès.');
+    } catch (error) {
+        console.error('Erreur lors de l\'initialisation de la base de données:', error);
+    } finally {
+        await connection.end();
+    }
+})();
