@@ -17,7 +17,7 @@ export default {
         'Satoshi': ['Satoshi', 'Courier New', 'Arial', 'Helvetica']
       },
       fontSize: {
-        sm: '9px',
+        sm: '10px',
         base: '14px',
         large: '18px',
         xl: '20px',
