@@ -1,7 +1,7 @@
-import Header from './components/header'
-import GraphCard from './components/graph_card'
-import WeightCard from './components/weight_card'
-import IccCard from './components/icc_card'
+import Header from '../components/header'
+import GraphCard from '../components/graph_card'
+import WeightCard from '../components/weight_card'
+import IccCard from '../components/icc_card'
 
 function AnimalWeightPage() {
     
