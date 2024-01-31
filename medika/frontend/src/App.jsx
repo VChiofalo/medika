@@ -9,11 +9,11 @@ function App() {
 
   return (
     <>
-      
+
       <ProfilPageAnimal/>
 
       <AnimalWeightPage/>
-      
+
 
     </>
   )
