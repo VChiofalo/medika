@@ -9,9 +9,9 @@ export default {
       colors: {
         'black': '#111816',
         'white': '#EDEDED',
-        primary: '#E15100',
-        accentuary: '#E15100',
-        secondary: '#79BAF6'
+        'primary': '#E15100',
+        'accentuary': '#E15100',
+        'secondary': '#79BAF6'
       },
       fontFamily: {
         'Satoshi': ['Satoshi', 'Courier New', 'Arial', 'Helvetica']
