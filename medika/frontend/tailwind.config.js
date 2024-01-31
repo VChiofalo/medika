@@ -9,7 +9,7 @@ export default {
       colors: {
         'black': '#111816',
         'white': '#EDEDED',
-        primary: '#E15100',
+        primary: '#009688',
         accentuary: '#E15100',
         secondary: '#79BAF6'
       },
