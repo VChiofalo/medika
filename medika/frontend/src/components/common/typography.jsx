@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 const Typography = ({ children, tag, variant = "primary" , customClasses , font}) => {
   const Component = tag || "p";
+  //font = font != null ? "font-" + font : ""
 
   const className = clsx({
     //text color
@@ -21,7 +22,7 @@ const Typography = ({ children, tag, variant = "primary" , customClasses , font}
     "text-large font-Satoshi": tag === "h5",
     "text-base font-Satoshi": tag === "h6",
     "text-sm font-Satoshi": tag === "p",
-    
+
 
     [customClasses]: customClasses,
   });
