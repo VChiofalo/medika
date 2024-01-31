@@ -1,29 +1,18 @@
 import { useState } from 'react'
 import './App.css'
-import AnimalCard from './components/animal_card'
-import WeightStatusCard from './components/weight_status_card'
-import VaccineCard from './components/vaccine_card'
-import Navbar from './components/navbar'
-import SupervisionCard from './components/supervision_card'
-import Header from './components/header'
-import GraphCard from './components/graph_card'
-import WeightCard from './components/weight_card'
-import IccCard from './components/icc_card'
+import ProfilPageAnimal from './pages/animal_profil_page'
+import AnimalWeightPage from './pages/animal_weight_page'
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <AnimalCard/>
-      <div className='flex justify-center'>
-        <WeightStatusCard/>
-        <VaccineCard/>
-      </div>
-      
-      <SupervisionCard/>
+      <ProfilPageAnimal/>
 
-      <Navbar/>
+      <AnimalWeightPage/>
+      
 
       <Header/>
       <GraphCard/>
