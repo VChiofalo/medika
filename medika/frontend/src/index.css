@@ -4,8 +4,8 @@
 
 @font-face {
     font-family: 'Satoshi';
-    src:  url('fonts/satoshi-regular/Satoshi-Regular.woff2') format('woff2'),
-          url('fonts/satoshi-regular/Satoshi-Regular.woff') format('woff2'),
-          url('fonts/satoshi-regular/Satoshi-Regular.ttf') format('truetype')
+    src:  url('./assets/fonts/satoshi-regular/Satoshi-Regular.woff2') format('woff2'),
+          url('./assets/fonts/satoshi-regular/Satoshi-Regular.woff') format('woff2'),
+          url('./assets/fonts/satoshi-regular/Satoshi-Regular.ttf') format('truetype')
   }
   
