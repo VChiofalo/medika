@@ -7,5 +7,8 @@ export default mysql.createPool({
     user     : process.env.SQL_USER,
     password : process.env.SQL_PASSWORD,
     port     : process.env.SQL_PORT,
-    database : process.env.SQL_DBNAME
+    database : process.env.SQL_DBNAME,
+    waitForConnections : true, 
+    connectionLimit : 10,  
+    queueLimit : 0
 });
