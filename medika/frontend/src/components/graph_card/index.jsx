@@ -1,3 +1,5 @@
+import ChartGraph from "../chart";
+
 function GraphCard({years}) {
 
 years = ["2023", "2022"]
@@ -12,7 +14,7 @@ const yearsList = years.map((year) => {
             <div className="YearsGraph flex gap-4 m-2">
                 {yearsList}
             </div>
-            <img src="/img/chart.png" alt="" />
+            <ChartGraph/>
         </div>        
     </>
   }
