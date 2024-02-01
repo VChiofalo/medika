@@ -14,27 +14,29 @@ const animalsList = animalsProfilPictures.map((animal) => {
 })
     return <>
         <div className="flex flex-col items-center">   
-            <div className="border-2 rounded w-80">
-                <img src="img/stupidDog.jpg" className="w-full" alt="" />
-                <img src="img/user.png" className="w-20 rounded-full relative bottom-10 left-28" alt="" />
-                <Typography>Cameron</Typography>
-                <Typography>Martin</Typography>
+            <div className="flex flex-col items-center  rounded-3xl w-60 pb-4 bg-gradient-to-l from-primary to-secondary">
+                <div className="flex items-center relative mb-10 w-80">
+                    <img src="img/stupidDog.jpg" className="w-full relative rounded-b-3xl" alt="" />
+                    <img src="img/user.png" className="w-20 rounded-full absolute inset-x-2/4 transform -translate-x-1/2 bottom-0 translate-y-1/2" alt="" />
+                </div>
+                <Typography variant="white" tag="h4">Cameron</Typography>
+                <Typography variant="white">Martin</Typography>
 
-                <div className="flex justify-center">
-                    <div className="flex flex-col border-r-4 p-2">
-                        <Typography tag="h3">{animals}</Typography>
-                        <Typography>{animals > 0 ? "animaux" : "animal"}</Typography>
+                <div className="flex justify-center divide-x-2 m-2">
+                    <div className="flex flex-col px-2">
+                        <Typography variant="white" tag="h3">{animals}</Typography>
+                        <Typography variant="white">{animals > 0 ? "animaux" : "animal"}</Typography>
                     </div>
-                    <div className="flex flex-col border-l-4 p-2">
-                        <Typography tag="h3">{treatements}</Typography>
-                        <Typography>{treatements > 0 ? "traitement" : "traitements"}</Typography>
+                    <div className="flex flex-col px-2">
+                        <Typography variant="white" tag="h3">{treatements}</Typography>
+                        <Typography variant="white">{treatements > 0 ? "traitement" : "traitements"}</Typography>
                     </div>
                 </div>
 
                 <div className="flex items-center justify-center gap-4">
                     {animalsList}
                 </div>
-                <Typography>Mes compagnons</Typography>
+                <Typography variant="white">Mes compagnons</Typography>
             </div>
 
         </div>
