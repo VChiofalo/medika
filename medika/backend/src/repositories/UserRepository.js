@@ -1,4 +1,4 @@
-export default class User {
+export default class UserRepository {
     async add(user){
         await connection.promise().query('INSERT INTO `users` SET ?', user);
     }

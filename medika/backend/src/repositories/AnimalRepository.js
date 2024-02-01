@@ -1,4 +1,4 @@
-export default class Animal {
+export default class AnimalRepository {
     constructor(connection) {
         this.connection = connection;
     }
