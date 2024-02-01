@@ -10,20 +10,20 @@ function AnimalCard({ name, birthday, breed, gender }) {
                 <h2>{name}</h2>
                 <div className="flex items-center gap-4">
                     <div className="birthday flex">
-                        <i class="fa-solid fa-cake-candles"></i>
+                        <i className="fa-solid fa-cake-candles"></i>
                         {birthday}
                     </div>
                     <div className="breed flex">
-                        <i class="fa-solid fa-paw"></i>
+                        <i className="fa-solid fa-paw"></i>
                         {breed}
                     </div>
                     <div className="gender flex">
-                        <i class="fa-solid fa-venus-mars"></i>
+                        <i className="fa-solid fa-venus-mars"></i>
                         {gender}
                     </div>
                 </div>
                 <div className="flex bg-red-200 rounded p-2 gap-2 items-center">
-                    <i class="fa-solid fa-share"></i>
+                    <i className="fa-solid fa-share"></i>
                     <button>Share</button>  
                 </div>
             </div>
