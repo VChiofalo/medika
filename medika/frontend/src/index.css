@@ -10,4 +10,12 @@
           url('./assets/fonts/satoshi-regular/Satoshi-Regular.ttf') format('truetype')
 
   }
+
+  @font-face {
+    font-family: 'Satoshi-light';
+
+    src:  url('./assets/fonts/satoshi-light/Satoshi-Light.woff') format('woff'),
+          url('./assets/fonts/satoshi-light/Satoshi-Light.ttf') format('truetype')
+
+  }
   

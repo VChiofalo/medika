@@ -11,7 +11,8 @@ export default {
         'white': '#EDEDED',
         primary: '#009688',
         accentuary: '#E15100',
-        secondary: '#79BAF6'
+        secondary: '#79BAF6',
+        background: '#ffe8dbff'
       },
       fontFamily: {
         'Satoshi': ['Satoshi', 'Courier New', 'Arial', 'Helvetica']
