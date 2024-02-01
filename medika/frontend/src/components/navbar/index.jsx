@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 
 function Navbar() {
-//link to 
-//faire les paths
+
     return <>
         <div className="flex justify-center ">
             <div className="flex gap-3 rounded-full bg-red-200 p-2">

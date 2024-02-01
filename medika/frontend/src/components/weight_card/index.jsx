@@ -1,18 +1,31 @@
+import Typography from "../common/typography";
+
 function WeightCard({ weight, previous_weight }) {
-    weight = '3'
+    weight = "12"
+    previous_weight = "15"
+    let actualWeight = weight - previous_weight
+
     return <>
-        <div className="border-2 flex flex-col justify-center m-2">
-            <div className="flex items-center justify-center">
-                <i class="fa-solid fa-weight-hanging"></i>
-                <h2>Poids</h2>
+        <div className="flex flex-col justify-center">
+            <div className="border-2 flex-col items-center justify-center rounded-lg m-2 h-full ">
+                <div className=" ">
+                    <Typography variant="primary" tag="h2"><h2>Estimation</h2></Typography>
+                    <Typography variant="black"><p>pour le mois prochain</p></Typography>
+                </div>
+                <div className="">
+                    <div className=" ">
+                        <p><Typography>{actualWeight}</Typography></p>
+                    </div>
+                    <div className="">
+                        <p><Typography tag="h3">{weight} kg</Typography></p>
+                    </div>
+                    
+                    
+                </div>
             </div>
-            <div className="flex items-center gap-2">
-                <p>{weight} kg</p>
-                <p>stats</p>
-            </div>
-        </div>        
+            
+        </div>
     </>
   }
-  
   export default WeightCard;
   
