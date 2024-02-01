@@ -24,6 +24,13 @@ export default {
         '2xl': '25px',
         '3xl': '52px', 
         '4xl': '84px'
+      },
+      backgroundImage: {
+        'accueil-1': "url('./assets/images/Welcome01.png')",
+        'accueil-2': "url('./assets/images/Welcome02.png')",
+        'accueil-3': "url('./assets/images/Welcome03.png')",
+
+        
       }
     },
   },
