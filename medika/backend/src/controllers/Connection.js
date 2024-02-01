@@ -1,4 +1,4 @@
-const userRepo = require('../repositories/users.js')
+/* const userRepo = require('../repositories/users.js')
 const bcrypt = require('bcryptjs')
 
 exports.get = (req, res) => {
@@ -28,4 +28,4 @@ exports.post = (req, res) => {
         console.error(error);
         res.render('auth', { error: "Un problème est survenu lors de la tentative de connexion." });
 });
-};
+}; */
