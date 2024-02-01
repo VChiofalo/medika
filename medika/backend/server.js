@@ -18,6 +18,10 @@
 
     
     app.use(cors());
+    app.get('/products/:id', function (req, res, next) {
+      res.json({msg: 'CORS is enabled for all origins!'});
+    });
+    
 
 
     app.use(session({
@@ -26,7 +30,7 @@
         saveUninitialized: false,
         cookie: { secure: false }
     }));
-    
+
     const app = express();
 
     app.use(express.json());
@@ -35,6 +39,9 @@
     // const someRoute = require('./routes/someRoute');
 
     app.use(express.json());
+    app.listen(80, function () {
+      console.log('CORS-enabled web server is listening on port 80');
+    });
 
     app.listen(process.env.PORT, () => {
         console.log(`Serveur en écoute sur le port ${process.env.PORT}`);
