@@ -12,8 +12,11 @@
   "author": "Vincent Chiofalo / Erwan Mazeas / Frédéric Vamer / Alex Fraioli / Marieme Aidara",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.9.1"
   }
 }
