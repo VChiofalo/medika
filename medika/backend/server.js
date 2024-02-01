@@ -1,50 +1,50 @@
     import express from 'express';
     import 'dotenv/config';
-    import session from 'express-session' ;
     import cors from 'cors';
     import bcrypt from 'bcryptjs';
-    import flash from 'express-flash-messages';
+    import path from 'path';
+    import { fileURLToPath } from 'url';
+    import routes from './app/routes.js';
 
-    const whitelist = [process.env.URLFRONT]
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    
+
+    const whitelist = [process.env.URL_FRONT_MEDIKA]
     const corsOptions = {
-     origin: function (origin, callback) {
-      if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-     } else {
-       callback(new Error('Not allowed by CORS'))
-     }
-   } 
- }
+      origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true)
+        } else {
+          callback(new Error('Not allowed by CORS'))
+        }
+      } 
+    }
 
     
-    app.use(cors());
+    /* app.use(cors());
     app.get('/products/:id', function (req, res, next) {
       res.json({msg: 'CORS is enabled for all origins!'});
-    });
-    
-
-
-    app.use(session({
-        secret: process.env.SESSION_SECRET,
-        resave: false,
-        saveUninitialized: false,
-        cookie: { secure: false }
-    }));
+    }); */
 
     const app = express();
 
-    app.use(express.json());
- 
-    // Importez vos routes ici
-    // const someRoute = require('./routes/someRoute');
+    //--------------------------------------------------------------------
+    //      Récupération des données en POST
+    //--------------------------------------------------------------------
+    app.use(express.urlencoded({ extended: false }));
 
-    app.use(express.json());
-    app.listen(80, function () {
-      console.log('CORS-enabled web server is listening on port 80');
-    });
+    //--------------------------------------------------------------------
+    //      Routes
+    //--------------------------------------------------------------------
+    routes(app);
 
-    app.listen(process.env.PORT, () => {
-        console.log(`Serveur en écoute sur le port ${process.env.PORT}`);
-    });
+    //--------------------------------------------------------------------
+    //     Ecoute du serveur HTTP
+    //--------------------------------------------------------------------
+    app.listen(process.env.PORT, ()=>{
+      if (process.env.APP_ENV == 'dev') {
+        console.log(`Le serveur est démarré : http://localhost:${process.env.PORT}`);
+      }
+});
 
     export default app;
