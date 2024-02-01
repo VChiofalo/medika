@@ -1,16 +1,14 @@
-
+import React from 'react';
 const Home = () => {
     
     return (
         <div className="home">
-            <h1>Carrousel de Boutons</h1>
+            <h1>ACCUEIL</h1>
+            <button>Navbar</button>
             <div className="button-carousel">
             
             </div>
-            <div className="carousel-controls">
-                <button>Précédent</button>
-                <button>Suivant</button>
-            </div>
+
         </div>
     );
 };
