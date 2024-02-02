@@ -14,32 +14,36 @@ export default class RegisterController {
             const userRepo = new UserRepository();
             userRepo.existsEmail(entity.getEmail()).then((emailExist) => {
                 if (emailExist) {
-                    res.json({
-                        error: `L'adresse email déjà utilisé !`,
+                    res.status(403).json({
+                        message: `Adresse email déjà utilisé !`,
                         email: entity.getEmail(),
                         firstname: entity.getFirstName(),
-                        lastname: entity.getLastName()
+                        lastname: entity.getLastName(),
+                        error: true
                     })
                 } else {
                     if (req.body.password != req.body.passwordConfirm) {
-                        res.json({
-                            error: `Les mots de passes ne correspondent pas !`,
+                        res.status(403).json({
+                            message: `Les mots de passes ne correspondent pas !`,
                             email: entity.getEmail(),
                             firstname: entity.getFirstName(),
-                            lastname: entity.getLastName()
+                            lastname: entity.getLastName(),
+                            error:true
                         })
                     } else {
                         userRepo.add(entity).then(()=>{
-                            res.json({
+                            res.status(200).json({
                                 message: `Votre compte a bien été créé. Vous pouvez vous connecter avec vos identifiants !`
                             })
                         })
                     }
                 }
-            
             })
         } catch (error) {
-            res.status(500).json({ message: 'Erreur lors de la création du compte' + error.message });
+            res.status(500).json({ 
+                message: 'Erreur lors de la création du compte',
+                error: true
+            });
         }
         
     }
