@@ -22,22 +22,12 @@ export default class RegisterController {
                         error: true
                     })
                 } else {
-                    if (req.body.password != req.body.passwordConfirm) {
-                        res.status(403).json({
-                            message: `Les mots de passes ne correspondent pas !`,
-                            email: entity.getEmail(),
-                            firstname: entity.getFirstName(),
-                            lastname: entity.getLastName(),
-                            error:true
-                        })
-                    } else {
                         userRepo.add(entity).then(()=>{
                             res.status(200).json({
                                 message: `Votre compte a bien été créé. Vous pouvez vous connecter avec vos identifiants !`
                             })
                         })
                     }
-                }
             })
         } catch (error) {
             res.status(500).json({ 
