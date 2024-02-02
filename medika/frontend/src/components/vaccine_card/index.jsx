@@ -1,15 +1,17 @@
+import Typography from "../common/typography";
+
 function VaccineCard({ name, date }) {
     name = 'Tetanos'
     date = '13 janv 2007'
     return <>
-        <div className="flex flex-col border-2 items-center m-2">
+        <div className="flex flex-col bg-white items-center rounded-lg m-2">
             <div className="flex justify-center items-center">
-                <i class="fa-solid fa-syringe"></i>
+                <i className="fa-solid fa-syringe text-accentuary"></i>
                 <h2>Vaccin</h2>
             </div>
             <div className="flex flex-col justify-center">
-                <p>{name}</p>
-                <p>{date}</p>
+                <Typography tag="h4" variant="accentuary">{name}</Typography>
+                <Typography>{date}</Typography>
             </div>
         </div>        
     </>
