@@ -1,13 +1,15 @@
+import Typography from "../common/typography";
+
 function WeightStatusCard({ weight, previous_weight }) {
     weight = '3'
     return <>
-        <div className="border-2 flex flex-col justify-center m-2">
+        <div className="flex flex-col justify-center m-2 bg-white rounded-lg">
             <div className="flex items-center justify-center">
-                <i class="fa-solid fa-weight-hanging"></i>
-                <h2>Poids</h2>
+                <i className="fa-solid fa-weight-hanging text-accentuary"></i>
+                <Typography tag="h4">Poids</Typography>
             </div>
             <div className="flex items-center gap-2">
-                <p>{weight} kg</p>
+                <Typography><span className="text-3xl">{weight}</span>.00 kg</Typography>
                 <p>stats</p>
             </div>
         </div>        

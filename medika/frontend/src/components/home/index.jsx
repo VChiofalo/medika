@@ -1,5 +1,6 @@
 import ProfilPageAnimal from "../../pages/animal_profil_page"
 import AnimalWeightPage from "../../pages/animal_weight_page"
+import FormAddAnimals from "../forms/add_animals";
 
 const Home = () => {
     
@@ -13,7 +14,8 @@ const Home = () => {
                 </div>
 
                 <ProfilPageAnimal/>
-            <AnimalWeightPage/>
+                <AnimalWeightPage/>
+                <FormAddAnimals/>
 
             </div>
        
