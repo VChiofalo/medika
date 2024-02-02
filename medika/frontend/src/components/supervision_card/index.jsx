@@ -6,7 +6,7 @@ function SupervisionCard({ date, overview }) {
     return <>
         <div className="flex items-center flex-col  ">
 
-            <div className="overflow-hidden rounded-lg m-2" >
+            <div className="overflow-hidden rounded-lg m-2 w-full sm:w-3/4">
                 <div className="treatements rounded-lg bg-background m-2">
                     <div className="flex justify-center items-center p-2">
                         <i className="fa-solid fa-pills text-accentuary"></i>
@@ -26,13 +26,13 @@ function SupervisionCard({ date, overview }) {
 
                 <div className="reminder rounded-lg bg-background m-2">
                     <div className="flex justify-center items-center p-2">
-                        <i className="fa-regular fa-bell text-accentuary"></i>
+                        <i className="fa-solid fa-bell text-accentuary"></i>
                         <Typography tag="h3">Rappel</Typography>
                     </div>
                     
-                    <div className="flex items-center">
-                        <Typography tag="h3">{date}</Typography>
-                        <Typography tag="h3">{overview}</Typography>
+                    <div className="flex justify-between w-full">
+                            <Typography>{date}</Typography>
+                            <Typography>{overview}</Typography>
                     </div>
                 </div>
 
@@ -42,9 +42,9 @@ function SupervisionCard({ date, overview }) {
                         <Typography>Notes</Typography>
                     </div>
                     
-                    <div className="flex items-center">
-                        <Typography>{date}</Typography>
-                        <Typography>{overview}</Typography>
+                    <div className="flex justify-between w-full">
+                            <Typography>{date}</Typography>
+                            <Typography>{overview}</Typography>
                     </div>
                 </div>
             </div>

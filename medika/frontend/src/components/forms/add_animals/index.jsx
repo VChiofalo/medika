@@ -4,6 +4,7 @@ import Header from "../../header";
 
 function FormAddAnimals() {
 
+
 return <>
     <div className="flex w-full justify-center ">
         <div className="flex flex-col ">
@@ -26,11 +27,9 @@ return <>
                             <option value="other">Autre</option>
                         </select>
                     </label>
-                    <label className="m-2">Poid <input name="weight" type="number" className="border-2 rounded"/> Kg</label>
 
                     <button type="submit" className="bg-primary rounded-full p-4"><Typography variant="blanc">Enregistrer</Typography></button>
                 </div>
-                
             </form>
         </div>
     </div>

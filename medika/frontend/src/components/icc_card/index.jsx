@@ -4,28 +4,26 @@ function IccCard({ icc }) {
     icc = "9"
 
     return <>
-        <div className=" m-2">
+        <div className=" m-2 bg-white">
             <div className="flex flex-col border-2 gap-2 rounded-lg">
                 <div className="flex flex-col items-center justify-center">
-                    <Typography variant="primary" tag="h2"><h2>ICC</h2></Typography>
-                    <Typography variant="black"><p>Indice de Condition Corporelle</p></Typography>
+                    <Typography tag="h2">ICC</Typography>
+                    <Typography>Indice de Condition Corporelle</Typography>
                 </div>
                 <div className="flex flex-col items-center">
                     <div className="flex ">
 
                     </div>
                     <div className="">
-                        <p><Typography tag="h2">{icc}</Typography></p>
+                        <Typography variant="primary" tag="h2">{icc}</Typography>
                     </div>
                     
                     
                 </div>
             </div>
             <button className="flex items-center rounded-full gap-2 p-2 border-orange-500">
-                    <i class="fa-solid fa-plus"></i>
-                    <Typography>
-                        Mettre a jour le poid
-                    </Typography>
+                    <i className="fa-solid fa-plus text-background"></i>
+                    <Typography>Mettre a jour le poid</Typography>
                 </button>
         </div>
     </>
