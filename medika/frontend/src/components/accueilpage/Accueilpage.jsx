@@ -51,7 +51,7 @@ function AccueilPage() {
         <div className="continue-button-container absolute bottom-8 left-1/2 tr
         ansform -translate-x-1/2">
           <div className="continue-button bg-orange-500 text-white py-3 px-8 rounded-full text-lg font-semibold shadow-lg">
-            <Link to="/home">Continuer</Link>
+            <Link to="/login">Continuer</Link>
           </div>
         </div>
       )}
