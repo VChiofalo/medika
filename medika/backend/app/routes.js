@@ -1,10 +1,10 @@
 import express from 'express';
 import pool from '../app/database_sql.js';
 
-import ConnectionController from "../src/controllers/ConnectionController/ConnectionController.js";
+import ConnectionController from "../src/controllers/AuthenticationController/AuthenticationController.js";
 
 import RegisterController from "../src/controllers/RegisterController/RegisterController.js";
-// import LoginController from "../src/controllers/LoginController/LoginController.js";
+import AuthenticationController from '../src/controllers/AuthenticationController/AuthenticationController.js';
 import UserController from "../src/controllers/UserController/UserController.js";
 import UserRepository from "../src/repositories/UserRepository.js";
 import AnimalController from "../src/controllers/AnimalController/AnimalController.js"
@@ -12,13 +12,14 @@ import AnimalRepository from "../src/repositories/AnimalRepository.js";
 
 export default (app) => {
      const registerController = new RegisterController();
-     // const loginController = new LoginController();
+     const authenticationController = new AuthenticationController();
      const animalRepository = new AnimalRepository(pool.promise());
      const animalController = new AnimalController(animalRepository); 
      const userRepository = new UserRepository(pool.promise());
      const userController = new UserController(userRepository);
+     
      app.post('/register', (req, res) => registerController.registerUserProcess(req, res));
-     // app.post('/login', (req, res) => loginController.loginUserProcess(req, res));
+     app.post('/login', (req, res) => authenticationController.loginProcess(req, res));
      app.post('/animals', (req, res) => animalController.addAnimal(req, res));
      app.post('/users', (req, res) => userController.addUser(req, res));
      app.get('/animals/:id', (req, res) => animalController.getAnimalById(req, res));
