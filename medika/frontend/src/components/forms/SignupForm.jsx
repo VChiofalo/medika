@@ -1,57 +1,57 @@
-import React from 'react';
+import {useRef, useState} from 'react';
 
-class SignupForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: '',
-            confirmPassword: ''
-        };
-    }
+const  SignupForm = () => {
+ const formRef = useRef();
+ const [error, setError] = useState(null);
 
-    handleFirstNameChange = (event) => {
-        this.setState({ firstName: event.target.value });
-    };
-
-    handleLastNameChange = (event) => {
-        this.setState({ lastName: event.target.value });
-    };
-
-    handleEmailChange = (event) => {
-        this.setState({ email: event.target.value });
-    };
-
-    handlePasswordChange = (event) => {
-        this.setState({ password: event.target.value });
-    };
-
-    handleConfirmPasswordChange = (event) => {
-        this.setState({ confirmPassword: event.target.value });
-    };
-
-    handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log('First Name:', this.state.firstName);
-        console.log('Last Name:', this.state.lastName);
-        console.log('Email:', this.state.email);
-        console.log('Password:', this.state.password);
-        console.log('Confirm Password:', this.state.confirmPassword);
+        console.log(formRef.current);
+
+        const data = new FormData(formRef.current);
+        const firstname = data.get('firstname');
+        const lastname = data.get('lastname');
+        const email = data.get('email');
+        const password = data.get('password');
+        const confirmpassword = data.get('confirmPassword');
+
+        if(password !== confirmpassword) {
+
+            setError('Les mots de passe ne sont pas identiques');
+            // clear password fields in dom
+            const formField = formRef.current.querySelectorAll('input[type="password"]');
+            formField.forEach(field => field.value = '');
+            return;
+        }
+
+        const body = {
+            firstname,
+            lastname,
+            email,
+            password
+        }
+
+        console.log(body);
+        const request = await fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers : {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            body: JSON.stringify(body)
+        })
+        const response = await request.json();
+        console.log(response)
     };
 
-    render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form ref={formRef} onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="firstName">Prénom:</label>
                     <input
                         name="firstname"
                         type="text"
                         id="firstName"
-                        value={this.state.firstName}
-                        onChange={this.handleFirstNameChange}
                         required
                     />
                 </div>
@@ -61,8 +61,7 @@ class SignupForm extends React.Component {
                         name="lastname"
                         type="text"
                         id="lastName"
-                        value={this.state.lastName}
-                        onChange={this.handleLastNameChange}
+               
                         required
                     />
                 </div>
@@ -72,19 +71,18 @@ class SignupForm extends React.Component {
                         name="email"
                         type="email"
                         id="email"
-                        value={this.state.email}
-                        onChange={this.handleEmailChange}
+                   
                         required
                     />
                 </div>
+                {error && <p>{error}</p>}
                 <div>
                     <label htmlFor="password">Mot de passe:</label>
                     <input
                         name="password"
                         type="password"
                         id="password"
-                        value={this.state.password}
-                        onChange={this.handlePasswordChange}
+                     
                         required
                     />
                 </div>
@@ -94,15 +92,14 @@ class SignupForm extends React.Component {
                         name="confirmPassword"
                         type="password"
                         id="confirmPassword"
-                        value={this.state.confirmPassword}
-                        onChange={this.handleConfirmPasswordChange}
+                   
                         required
                     />
                 </div>
                 <button type="submit">Inscription</button>
             </form>
         );
-    }
+    
 }
 
 export default SignupForm;
