@@ -37,9 +37,9 @@ export default class AnimalController {
             const { id } = req.params;
             const updateResult = await this.animalRepository.updateAnimalById(id, req.body);
             if (updateResult.affectedRows > 0) {
-                res.json({ message: 'Animal updated successfully!' });
+                res.json({ message: 'Mise à jour du profil de la bestiole!' });
             } else {
-                res.status(404).json({ message: 'Animal not found!' });
+                res.status(404).json({ message: 'On a pas trouvé la bestiole!' });
             }
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -51,12 +51,25 @@ export default class AnimalController {
             const { id } = req.params;
             const deleteResult = await this.animalRepository.deleteAnimalById(id);
             if (deleteResult.affectedRows > 0) {
-                res.json({ message: 'Animal deleted successfully!' });
+                res.json({ message: 'Suppression du profil de la bestiole réussie!' });
             } else {
-                res.status(404).json({ message: 'Animal not found!' });
+                res.status(404).json({ message: "Aucune bestiole n'a été trouvée!" });
             }
         } catch (error) {
-            res.status(500).json({ message: error.message });
+            res.status(500).json({ message: "Erreur lors de la suppression de la bestiole: " + error.message });
+        }
+    }
+    async addWeightToAnimal(req, res) {
+        try {
+            const { id_animals, date_weight, value_weight } = req.body;
+            const addResult = await this.animalRepository.addWeight(id_animals, date_weight, value_weight);
+            if (addResult.affectedRows > 0) {
+                res.status(200).json({ message: 'Poids ajouté avec succès.' });
+            } else {
+                res.status(400).json({ message: "Erreur lors de l'ajout du poids. Aucune modification n'a été effectuée." });
+            }
+        } catch (error) {
+            res.status(500).json({ message: "Erreur lors de l'ajout du poids: " + error.message });
         }
     }
 }

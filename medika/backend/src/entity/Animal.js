@@ -1,66 +1,91 @@
-export default class User{
-    /** 
-    * @var email string
-    **/
+export default class Animal {
 
-        getEmail(){
-            return this.email;
-        }
+    // constructor(id_animals, first_name, last_name, birthday, gender, mutual, breed_name, user_email) {
+    //     this.id_animals = id_animals;
+    //     this.first_name = first_name;
+    //     this.last_name = last_name;
+    //     this.birthday = birthday;
+    //     this.gender = gender;
+    //     this.mutual = mutual;
+    //     this.breed_name = breed_name;
+    //     this.user_email = user_email;
+    //     this.weight = [];
 
-        setEmail(email){
-            this.email = email;
-            return this;
-        }
+    // }
 
-    /** 
-    * @var password string
-    **/
+    getId() {
+        return this.id_animals;
+    }
 
-        getPassword(){
-            return this.password;
-        }
+    getFirstName() {
+        return this.first_name;
+    }
+
+    setFirstName(first_name) {
+        this.first_name = first_name;
+        return this;
+    }
+
+    getLastName() {
+        return this.last_name;
+    }
+
+    setLastName(last_name) {
+        this.last_name = last_name;
+        return this;
+    }
+
+    getBirthday() {
+        return this.birthday;
+    }
+
+    setBirthday(birthday) {
+        this.birthday = birthday;
+        return this;
+    }
+
+    getGender() {
+        return this.gender;
+    }
+
+    setGender(gender) {
+        this.gender = gender;
+        return this;
+    }
+
+    getMutual() {
+        return this.mutual;
+    }
+
+    setMutual(mutual) {
+        this.mutual = mutual;
+        return this;
+    }
+
+    getBreedName() {
+        return this.breed_name;
+    }
+
+    setBreedName(breed_name) {
+        this.breed_name = breed_name;
+        return this;
+    }
+
+    getUserEmail() {
+        return this.user_email;
+    }
+
+    setUserEmail(user_email) {
+        this.user_email = user_email;
+        return this;
+    }
     
-        setPassword(password){
-            this.password = password;
-            return this;
-        }
-
-    /** 
-    * @var first_name string
-    **/
-
-        getFirstName(){
-            return this.                  ;
-        }
+    getWeight() {
+        return this.weight;
+    }
+    setWeight(weight) {
+        this.weight = weight;
+        return this;
+    }
     
-        setFirstName(first_name){
-            this.first_name = first_name;
-            return this;
-        }
-
-    /** 
-    * @var last_name string
-    **/
-
-        getLastName(){
-            return this.last_name;
-        }
-    
-        setLastName(last_name){
-            this.last_name = last_name;
-            return this;
-        }
-
-    /** 
-    * @var two_factor boolean
-    **/
-
-        getTwoFactor(){
-            return this.two_factor;
-        }
-    
-        setTwoFactor(two_factor){
-            this.two_factor = two_factor;
-            return this;
-        }
 }
