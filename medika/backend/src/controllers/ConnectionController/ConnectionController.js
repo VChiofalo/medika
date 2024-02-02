@@ -1,7 +1,7 @@
-const userRepo = require('../repositories/users.js');
-const bcrypt = require('bcryptjs');
+import UserRepository from '../../repositories/UserRepository.js';
+import bcrypt from 'bcryptjs';
 
-class ConnectionController {
+export default class ConnectionController {
     // La méthode pour afficher le formulaire de connexion
     get(req, res) {
         res.render('auth');
@@ -10,7 +10,7 @@ class ConnectionController {
     // La méthode pour traiter la soumission du formulaire de connexion
     async post(req, res) {
         try {
-            const user = await userRepo.findOne({ email: req.body.email });
+            const user = await UserRepository.findOne({ email: req.body.email });
             if (user && bcrypt.compareSync(req.body.password, user.password)) {
                 req.session.user = {
                     firstname: user.firstname,
@@ -29,4 +29,3 @@ class ConnectionController {
         }
     }
 }
-module.exports = ConnectionController;

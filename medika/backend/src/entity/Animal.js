@@ -30,7 +30,7 @@ export default class User{
     **/
 
         getFirstName(){
-            return this.first_name;  
+            return this.                  ;
         }
     
         setFirstName(first_name){
