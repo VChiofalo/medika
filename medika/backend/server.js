@@ -31,12 +31,12 @@ app.use(cors(corsOptions));
 /* Récupération des données en POST */
 app.use(express.urlencoded({ extended: false }));
 // Configurez le middleware de session
-app.use(session({
+/* app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false } // 'secure' doit être true si vous êtes en HTTPS
-}));
+})); */
 
 // Utilisez flash messages
 app.use(flash());
