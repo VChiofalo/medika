@@ -28,6 +28,7 @@ function AnimalCard({ name, birthday, breed, gender }) {
                 <div className="flex bg-accentuary rounded p-2 gap-2 items-center">
                     <i className="fa-solid fa-share"></i>
                     <button><Typography variant="white">Share</Typography></button>  
+
                 </div>
             </div>
             
