@@ -1,6 +1,5 @@
 import 'dotenv/config';
 import mysql from 'mysql2/promise';
-// import con from '../app/database_sql.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

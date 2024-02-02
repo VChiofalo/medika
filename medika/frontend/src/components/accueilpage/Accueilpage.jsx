@@ -59,11 +59,4 @@ function AccueilPage() {
   );
 }
 
-
-
-
-
-
-
-
 export default AccueilPage;

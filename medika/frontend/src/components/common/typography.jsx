@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 
-const Typography = ({ children, tag, variant = "primary" , customClasses , font}) => {
+const Typography = ({ children, tag, variant = "black" , customClasses , font}) => {
   const Component = tag || "p";
   //font = font != null ? "font-" + font : ""
 

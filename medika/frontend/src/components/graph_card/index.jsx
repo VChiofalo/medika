@@ -9,7 +9,7 @@ const yearsList = years.map((year) => {
     </>})
 
     return <>
-        <div className="flex flex-col justify-center bg-orange-200 rounded-t-lg p-4">
+        <div className="flex flex-col justify-center bg-background rounded-b-lg p-4">
             <p>Données concernant les différents poids pendant l année</p>
             <div className="YearsGraph flex gap-4 m-2">
                 {yearsList}
