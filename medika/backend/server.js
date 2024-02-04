@@ -26,9 +26,6 @@ app.use(cors(corsOptions));
 /* Récupération des données en POST */
 app.use(express.urlencoded({ extended: false }));
 
-// Utilisez flash messages
-app.use(flash());
-
 /* Routes */
 routes(app);
 
