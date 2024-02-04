@@ -10,7 +10,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./db/init.sql/webika.sql:/docker-entrypoint-initdb.d/webika.sql
+      - ./db/init.sql:/docker-entrypoint-initdb.d
   phpmyadmin:
     image: phpmyadmin
     restart: always
@@ -22,9 +22,3 @@ services:
       - 8080:80
     depends_on:
       - db
-  # app:
-  #   build: ./backend
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - db
