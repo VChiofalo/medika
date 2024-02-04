@@ -1,4 +1,4 @@
-docker compose up
+docker compose up -d
 cd frontend 
 npm i
 start powershell {npm run dev}

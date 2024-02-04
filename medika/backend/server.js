@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 routes(app);
 
 /* Écoute du serveur HTTP */
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Le serveur est démarré sur le port ${process.env.PORT}`);
 });
 
