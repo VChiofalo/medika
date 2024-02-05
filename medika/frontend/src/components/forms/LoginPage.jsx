@@ -1,8 +1,14 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { login } from '../../store/slices/userSlice';
+import {useDispatch} from 'react-redux'
+import { useNavigate } from 'react-router-dom';
+
 const LoginPage = () => {
     const formRef = useRef();
     const [error, setError] = useState(null);
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -28,6 +34,8 @@ const LoginPage = () => {
         })
         const response = await request.json();
         console.log(response)
+        dispatch(login({email : email, jwt:response.jwt}))
+        navigate("/home")
     };
 
     return (
