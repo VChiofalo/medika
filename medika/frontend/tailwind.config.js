@@ -8,14 +8,16 @@ export default {
     extend: {
       colors: {
         'black': '#111816',
-        'white': '#EDEDED',
+        'white': '#ffffffff',//#EDEDED
         primary: '#009688',
         accentuary: '#E15100',
         secondary: '#79BAF6',
         background: '#ffe8dbff'
       },
       fontFamily: {
-        'Satoshi': ['Satoshi', 'Courier New', 'Arial', 'Helvetica']
+        'Satoshi': ['Satoshi', 'Courier New', 'Arial', 'Helvetica'],
+        'Satoshi-bold': ['Satoshi-bold','Arial', 'Helvetica'],
+        'Satoshi-light': ['Satoshi-light', 'Courier New', 'Arial', 'Helvetica'],
       },
       fontSize: {
         sm: '10px',
