@@ -3,13 +3,18 @@ import Typography from "../components/common/typography";
 import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
+<<<<<<< HEAD
   const formRef = useRef();
   const [error, setError] = useState(null);
   const [errorApi, setErrorApi] = useState(null);
   const navigate = useNavigate();
+=======
+    const formRef = useRef();
+    const [error, setError] = useState(null);
+>>>>>>> 8c312f13e7a8262c1eb2a926d069a5deebd555be
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
     const data = new FormData(formRef.current);
     const firstname = data.get("firstname");
@@ -18,22 +23,20 @@ const SignupForm = () => {
     const password = data.get("password");
     const confirmpassword = data.get("confirmPassword");
 
-    if (password !== confirmpassword) {
-      setError("Les mots de passe ne sont pas identiques");
-      // clear password fields in dom
-      const formField = formRef.current.querySelectorAll(
-        'input[type="password"]'
-      );
-      formField.forEach((field) => (field.value = ""));
-      return;
-    }
+        if (password !== confirmpassword) {
+            setError('Les mots de passe ne sont pas identiques');
+            // clear password fields in dom
+            const formField = formRef.current.querySelectorAll('input[type="password"]');
+            formField.forEach(field => field.value = '');
+            return;
+        }
 
-    const body = {
-      firstname,
-      lastname,
-      email,
-      password,
-    };
+        const body = {
+            firstname,
+            lastname,
+            email,
+            password
+        }
 
     const request = await fetch("http://localhost:3000/api/register", {
       method: "POST",
