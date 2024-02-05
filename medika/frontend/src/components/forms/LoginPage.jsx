@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
-
-const SignupForm = () => {
+import { Link } from 'react-router-dom';
+const LoginPage = () => {
     const formRef = useRef();
     const [error, setError] = useState(null);
 
@@ -85,13 +85,26 @@ const SignupForm = () => {
     textAlign: 'center' 
     }}>Connexion</button>
     
+            <Link to="/register">          
+            <button style={{
+                    backgroundColor: '#6FCF97',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '20px',
+                    padding: '6px 15px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    marginTop: '10px',
+                    transition: 'background-color 0.3s ease',
+                }}>Inscription</button>
+            </Link>
             </form>
+
         </div>
     );
-
        
 }
 
-export default SignupForm;
+export default LoginPage;
 
 
