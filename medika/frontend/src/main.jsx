@@ -13,6 +13,7 @@ import AccueilPage from './pages/Accueilpage.jsx';
 import UserProfilPage from './pages/user_profil_page.jsx';
 import LoginPage from './pages/LoginPage.jsx'
 import SignupForm from './pages/SignupForm.jsx'
+import FormAddAnimals from './components/forms/add_animals/index.jsx'
 
 const router = createBrowserRouter([
   {
