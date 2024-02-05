@@ -11,6 +11,10 @@ return <>
 
             <form method="post" >
                 <div className="flex flex-col p-4 bg-background rounded-b-xl divide-y divide-black">
+                   <label className="m-2">
+                        Photo
+                        <input type="file" name="photo" accept="image/*" className="border-2 rounded"/>
+                   </label>
                     <select name="breedname" className="border-2 rounded m-2">
                         <option value="dog">Chien</option>
                         <option value="cat">Chat</option>
