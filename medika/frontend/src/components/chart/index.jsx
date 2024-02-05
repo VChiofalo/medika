@@ -32,6 +32,7 @@ function ChartGraph() {
 
     const options = {
         responsive: true,
+        maintainAspectRatio:false,
         plugins: {
           /*legend: {
             position: 'top' as const,
@@ -57,11 +58,9 @@ function ChartGraph() {
 };
 console.log(data)
 
-        return <>
-          <div className='h-80'>
-            <Line options={options} data={data}/>
-          </div>
-        </>
+        return <div className='h-[300px]'>
+            <Line  options={options} data={data}/>
+        </div>
       }
       
       export default ChartGraph;

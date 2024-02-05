@@ -1,7 +1,5 @@
 import mysql from 'mysql2';
 
-console.log('Avant la création du pool de connexions');
-
 export default mysql.createPool({
     host     : process.env.SQL_HOST,
     user     : process.env.SQL_USER,

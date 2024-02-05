@@ -1,7 +1,13 @@
-import ProfilPageAnimal from "../../pages/animal_profil_page"
+import ProfilPageAnimal from "./animal_profil_page"
+import useLogged from "../hooks/useLogged";
+
+
+
 
 const Home = () => {
-    
+
+    useLogged()
+
     return (
         <div >
             <div className="">
