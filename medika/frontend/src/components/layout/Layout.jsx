@@ -8,7 +8,7 @@ const Layout = () => {
 
   console.log(location);
   return (
-    <div className="min-h-screen flex flex-col justify-between ">
+    <div className="flex flex-col justify-between ">
       {location.pathname === "/" || location.pathname === "/register"|| location.pathname === "/login" ? null : <Navbar />} 
       <Outlet />
     </div>
