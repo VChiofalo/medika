@@ -16,7 +16,7 @@ const animalsList = animalsProfilPictures.map((animal) => {
         <div className="flex flex-col items-center">   
             <div className="flex flex-col items-center  rounded-3xl w-60 pb-4 bg-gradient-to-l from-primary to-secondary">
                 <div className="flex items-center relative mb-10 w-80">
-                    <img src="img/stupidDog.jpg" className="w-full relative rounded-b-3xl" alt="" />
+                    <img src="img/stupidDog.jpg" className="w-full relative rounded-b-full" alt="" />
                     <img src="img/user.png" className="w-20 rounded-full absolute inset-x-2/4 transform -translate-x-1/2 bottom-0 translate-y-1/2" alt="" />
                 </div>
                 <Typography variant="white" tag="h4">Cameron</Typography>
