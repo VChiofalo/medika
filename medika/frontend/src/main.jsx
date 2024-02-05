@@ -14,6 +14,7 @@ import UserProfilPage from './pages/user_profil_page.jsx';
 import LoginPage from './pages/LoginPage.jsx'
 import SignupForm from './pages/SignupForm.jsx'
 import AnimalWeightPage from './pages/animal_weight_page.jsx'
+import FormAddAnimals from './components/forms/add_animals/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,10 @@ const router = createBrowserRouter([
       { path: "/poid", element:<AnimalWeightPage/>},
       { path: "/parametre", element:<p>Paramètres</p>},
       { path: "/login", element:<LoginPage/>},
-      { path: "/register", element:<SignupForm/>}, 
+      { path: "/register", element:<SignupForm/>},
+      { path: "/add_animals", element:<FormAddAnimals/>},
+
+    
     ],
   },
 ]);

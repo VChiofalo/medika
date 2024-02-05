@@ -4,7 +4,7 @@ import Typography from "../common/typography";
 function Navbar() {
     const location = useLocation();
     console.log(location.pathname)
-    return <>
+    return (<>
         <div className="flex justify-center fixed bottom-2 inset-x-2/4">
             <div className="flex gap-3 rounded-full bg-primary p-2">
                 <Link to="/profil" className="flex items-center rounded-full bg-white p-1 px-2 gap-2">
@@ -29,11 +29,9 @@ function Navbar() {
                     }
                 </Link>
             </div>
-           
-
         </div>        
-    </>
-  }
-  
-  export default Navbar;
+    </>);
+}
+
+export default Navbar;
   
