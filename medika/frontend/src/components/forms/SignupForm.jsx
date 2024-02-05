@@ -7,12 +7,12 @@ const SignupForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const data = new FormData(formRef.current);
-        const firstname = data.get('firstname');
-        const lastname = data.get('lastname');
-        const email = data.get('email');
-        const password = data.get('password');
-        const confirmpassword = data.get('confirmPassword');
+    const data = new FormData(formRef.current);
+    const firstname = data.get("firstname");
+    const lastname = data.get("lastname");
+    const email = data.get("email");
+    const password = data.get("password");
+    const confirmpassword = data.get("confirmPassword");
 
         if (password !== confirmpassword) {
             setError('Les mots de passe ne sont pas identiques');
