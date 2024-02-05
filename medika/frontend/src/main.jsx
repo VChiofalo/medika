@@ -9,6 +9,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layout from './components/layout/Layout.jsx';
 
 import Home from './pages/home.jsx';
+import Hom from './pages/hom.jsx';
 import AccueilPage from './pages/Accueilpage.jsx';
 import UserProfilPage from './pages/user_profil_page.jsx';
 import LoginPage from './pages/LoginPage.jsx'
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element:<AccueilPage/>},
       { path: "/home", element:<Home/>},
+      { path: "/hom", element:<Hom/>},
       { path: "/profil", element:<UserProfilPage/>},
       { path: "/parametre", element:<p>Paramètres</p>},
       { path: "/login", element:<LoginPage/>},
