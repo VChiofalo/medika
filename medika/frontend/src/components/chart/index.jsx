@@ -36,10 +36,10 @@ function ChartGraph() {
           /*legend: {
             position: 'top' as const,
           },*/
-          title: {
+          /*title: {
             display: true,
             text: 'Chart.js Line Chart',
-          },
+          },*/
         },
       };
       const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -48,7 +48,7 @@ function ChartGraph() {
         labels,
         datasets: [
           {
-            label: '20',
+            label: '2023',
             data: weight,
             borderColor: 'rgb(255, 99, 132)',
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
@@ -58,7 +58,9 @@ function ChartGraph() {
 console.log(data)
 
         return <>
+          <div className='h-80'>
             <Line options={options} data={data}/>
+          </div>
         </>
       }
       

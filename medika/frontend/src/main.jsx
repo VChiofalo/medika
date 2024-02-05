@@ -9,6 +9,7 @@ import Layout from './components/layout/Layout.jsx';
 import UserProfilPage from './pages/user_profil_page.jsx';
 import LoginPage from './components/forms/LoginPage.jsx';
 import SignupForm from './components/forms/SignupForm.jsx';
+import AnimalWeightPage from './pages/animal_weight_page.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { path: "/", element:<AccueilPage/>},
       { path: "/home", element:<Home/>},
       { path: "/profil", element:<UserProfilPage/>},
+      { path: "/poid", element:<AnimalWeightPage/>},
       { path: "/parametre", element:<p>Paramètres</p>},
       { path: "/login", element:<LoginPage/>},
       { path: "/register", element:<SignupForm/>},

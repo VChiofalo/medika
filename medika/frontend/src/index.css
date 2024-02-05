@@ -18,4 +18,13 @@
           url('./assets/fonts/satoshi-light/Satoshi-Light.ttf') format('truetype')
 
   }
+
+  @font-face {
+      font-family: 'Satoshi-bold';
+  
+      src:  url('./assets/fonts/satoshi-bold/Satoshi-Bold.ttf') format('truetype'),
+            url('./assets/fonts/satoshi-bold/Satoshi-Bold.woff') format('woff'),
+            url('./assets/fonts/satoshi-bold/Satoshi-Bold.woff2') format('woff2')
+  
+    }
   
