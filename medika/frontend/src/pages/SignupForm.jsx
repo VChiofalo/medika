@@ -3,15 +3,10 @@ import Typography from "../components/common/typography";
 import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
-<<<<<<< HEAD
   const formRef = useRef();
   const [error, setError] = useState(null);
   const [errorApi, setErrorApi] = useState(null);
   const navigate = useNavigate();
-=======
-    const formRef = useRef();
-    const [error, setError] = useState(null);
->>>>>>> 8c312f13e7a8262c1eb2a926d069a5deebd555be
 
     const handleSubmit = async (event) => {
         event.preventDefault();
