@@ -128,7 +128,7 @@ const LoginPage = () => {
           </button>
         </div>
 
-        <Typography tag={"p"} customClasses={"mt-4 text-center"}>
+        <Typography tag={"p"} customClasses={"mt-4 text-center lg:text-base"}>
           Pas encore de compte ?{" "}
           <Link to="/register" className="text-primary">
             Inscrivez vous !
