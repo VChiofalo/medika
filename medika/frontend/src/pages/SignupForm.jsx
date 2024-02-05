@@ -2,11 +2,11 @@ import { useRef, useState } from "react";
 import Typography from "../components/common/typography";
 
 const SignupForm = () => {
-  const formRef = useRef();
-  const [error, setError] = useState(null);
+    const formRef = useRef();
+    const [error, setError] = useState(null);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
     const data = new FormData(formRef.current);
     const firstname = data.get("firstname");
@@ -15,22 +15,20 @@ const SignupForm = () => {
     const password = data.get("password");
     const confirmpassword = data.get("confirmPassword");
 
-    if (password !== confirmpassword) {
-      setError("Les mots de passe ne sont pas identiques");
-      // clear password fields in dom
-      const formField = formRef.current.querySelectorAll(
-        'input[type="password"]'
-      );
-      formField.forEach((field) => (field.value = ""));
-      return;
-    }
+        if (password !== confirmpassword) {
+            setError('Les mots de passe ne sont pas identiques');
+            // clear password fields in dom
+            const formField = formRef.current.querySelectorAll('input[type="password"]');
+            formField.forEach(field => field.value = '');
+            return;
+        }
 
-    const body = {
-      firstname,
-      lastname,
-      email,
-      password,
-    };
+        const body = {
+            firstname,
+            lastname,
+            email,
+            password
+        }
 
     const request = await fetch("http://localhost:3000/api/register", {
       method: "POST",
