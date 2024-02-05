@@ -16,7 +16,7 @@ function GraphCard({ years }) {
         <p>Données concernant les différents poids pendant l année</p>
         <div className="YearsGraph flex gap-4 m-2">{yearsList}</div>
           <ChartGraph/>
-        
+
       </div>
     </>
   );

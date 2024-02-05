@@ -1,9 +1,12 @@
 import { useRef, useState } from "react";
 import Typography from "../components/common/typography";
+import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
   const formRef = useRef();
   const [error, setError] = useState(null);
+  const [errorApi, setErrorApi] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,7 +44,12 @@ const SignupForm = () => {
       body: JSON.stringify(body),
     });
     const response = await request.json();
-    console.log(response);
+    if (!response.error) {
+      navigate("/login", {state: {logMessage: response.message}});
+    } else if (response.error) {
+      setErrorApi(response.message);
+      formRef.current.querySelector('input[type="email"]').value = "";
+    }
   };
 
   return (
@@ -123,8 +131,8 @@ const SignupForm = () => {
             style={{ marginBottom: "5px" }}
             className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
           />
-          
         </div>
+        {errorApi && <Typography tag={'p'} variant="accentuary" customClasses={'pb-2 lg:text-base'}><i className="fa-solid fa-triangle-exclamation"></i> {errorApi}</Typography>}
         <div style={{ marginBottom: "10px" }} className="flex flex-col">
           <label className="text-sm font-Satoshi" htmlFor="email">
             Email

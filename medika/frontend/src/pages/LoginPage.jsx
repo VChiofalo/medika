@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../store/slices/userSlice";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Typography from "../components/common/typography";
 
 const LoginPage = () => {
@@ -10,6 +10,7 @@ const LoginPage = () => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -80,6 +81,8 @@ const LoginPage = () => {
         }}
         className="sm:w-11/12 mx-auto my-0"
       >
+        {location?.state?.logMessage && <Typography tag={'p'} variant="primary" customClasses={'pb-2 lg:text-base'}><i className="fa-solid fa-right-to-bracket"></i> {location.state.logMessage}</Typography>}
+
         {error && <Typography tag={'p'} variant="accentuary" customClasses={'pb-2 lg:text-base'}><i className="fa-solid fa-triangle-exclamation"></i> {error}</Typography>}
         <div style={{ marginBottom: "10px" }}
           className="flex flex-col"
