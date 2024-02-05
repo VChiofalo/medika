@@ -10,8 +10,6 @@ const SignupForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const handleSubmit = async (event) => {
-      event.preventDefault();
 
       const data = new FormData(formRef.current);
       const firstname = data.get("firstname");
@@ -217,5 +215,4 @@ const SignupForm = () => {
       </div>
     );
   };
-};
 export default SignupForm;
