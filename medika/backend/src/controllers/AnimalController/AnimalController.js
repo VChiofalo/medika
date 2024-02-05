@@ -11,13 +11,24 @@ export default class AnimalController {
 
     async addAnimal(req, res) {
         try {
-            const animal = req.body;
-            await this.animalRepository.add(animal);
-            res.status(200).json({ message: 'Animal added successfully!' });
+            const { breedname, lastname, firstname, birthdate, gender, weight, userId } = req.body;
+            // Assurez-vous que `userId` est correctement récupéré. Cela peut dépendre de votre système d'authentification.
+
+            // Vérification si un animal avec le même nom pour le même utilisateur existe déjà
+            const existingAnimal = await this.animalRepository.findAnimalByNameAndUserId(firstname, userId);
+            if (existingAnimal) {
+                return res.status(400).json({ message: "Un animal avec ce nom existe déjà pour cet utilisateur." });
+            }
+
+            // Si aucun animal identique trouvé, procéder à l'ajout
+            await this.animalRepository.add({ breedname, lastname, firstname, birthdate, gender, weight });
+            
+            res.status(201).json({ message: 'Animal ajouté avec succès !' });
         } catch (error) {
             res.status(500).json({ message: error.message });
         }
     }
+
     async getAnimalById(req, res) {
         try {
             const { id } = req.params;
@@ -25,7 +36,7 @@ export default class AnimalController {
             if (animal) {
                 res.json(animal);
             } else {
-                res.status(404).json({ message: 'Animal not found!' });
+                res.status(404).json({ message: 'Aucun animal trouvé!' });
             }
         } catch (error) {
             res.status(500).json({ message: error.message });

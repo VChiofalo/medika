@@ -10,6 +10,8 @@ const SignupForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
     const data = new FormData(formRef.current);
     const firstname = data.get("firstname");
@@ -25,7 +27,20 @@ const SignupForm = () => {
             formField.forEach(field => field.value = '');
             return;
         }
+        if (password !== confirmpassword) {
+            setError('Les mots de passe ne sont pas identiques');
+            // clear password fields in dom
+            const formField = formRef.current.querySelectorAll('input[type="password"]');
+            formField.forEach(field => field.value = '');
+            return;
+        }
 
+        const body = {
+            firstname,
+            lastname,
+            email,
+            password
+        }
         const body = {
             firstname,
             lastname,
