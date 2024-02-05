@@ -34,13 +34,17 @@ const LoginPage = () => {
       body: JSON.stringify(body),
     });
     const response = await request.json();
-    console.log(response);
-    dispatch(login({ email: email, jwt: response.jwt }));
-    navigate("/home");
+    if(response.error === true){
+        setError(response.message)
+    } else {
+        dispatch(login({ email: email, jwt: response.jwt }));
+        navigate("/home");
+    }
+    
   };
 
   return (
-    <div>
+    <div className="bg-white min-h-screen">
       <div
         style={{
           marginBottom: "20px",
@@ -76,6 +80,7 @@ const LoginPage = () => {
         }}
         className="sm:w-11/12 mx-auto my-0"
       >
+        {error && <Typography tag={'p'} variant="accentuary" customClasses={'pb-2 lg:text-base'}><i className="fa-solid fa-triangle-exclamation"></i> {error}</Typography>}
         <div style={{ marginBottom: "10px" }}
           className="flex flex-col"
         >
@@ -87,7 +92,7 @@ const LoginPage = () => {
             required
             placeholder="Email"
             style={{ marginBottom: "5px" }}
-            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] pr-4 py-2.5"
+            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
           />
         </div>
         {error && <p>{error}</p>}
@@ -102,7 +107,7 @@ const LoginPage = () => {
             required
             placeholder="Mot de passe"
             style={{ marginBottom: "5px" }}
-            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] pr-4 py-2.5"
+            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
           />
         </div>
 

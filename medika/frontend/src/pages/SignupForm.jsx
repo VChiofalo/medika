@@ -45,7 +45,7 @@ const SignupForm = () => {
   };
 
   return (
-    <div
+    <div className="bg-white min-h-screen"
     >
       <div
         style={{
@@ -103,7 +103,7 @@ const SignupForm = () => {
             required
             placeholder="Prénom"
             style={{ marginBottom: "5px" }}
-            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] pr-4 py-2.5"
+            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
           />
           
         </div>
@@ -121,7 +121,7 @@ const SignupForm = () => {
             required
             placeholder="Nom"
             style={{ marginBottom: "5px" }}
-            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] pr-4 py-2.5"
+            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
           />
           
         </div>
@@ -136,7 +136,7 @@ const SignupForm = () => {
             required
             placeholder="Email"
             style={{ marginBottom: "5px" }}
-            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] pr-4 py-2.5"
+            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
           />
           
         </div>
@@ -152,7 +152,7 @@ const SignupForm = () => {
             required
             placeholder="Mot de passe"
             style={{ marginBottom: "5px" }}
-            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] pr-4 py-2.5"
+            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
           />
           
         </div>
@@ -167,7 +167,7 @@ const SignupForm = () => {
             required
             placeholder="Confirmer le mot de passe"
             style={{ marginBottom: "5px" }}
-            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] pr-4 py-2.5"
+            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
           />
           
         </div>
