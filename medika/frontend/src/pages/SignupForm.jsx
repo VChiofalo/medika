@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import Typography from "../components/common/typography";
 
 const SignupForm = () => {
   const formRef = useRef();
@@ -139,7 +140,7 @@ const SignupForm = () => {
           />
           
         </div>
-        {error && <p>{error}</p>}
+        {error && <Typography tag={'p'} variant="accentuary" customClasses={'pb-2 lg:text-base'}><i className="fa-solid fa-triangle-exclamation"></i> {error}</Typography>}
         <div style={{ marginBottom: "10px" }} className="flex flex-col">
           <label className="text-sm font-Satoshi" htmlFor="password">
             Mot de passe

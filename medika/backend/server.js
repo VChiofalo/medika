@@ -21,7 +21,8 @@ const corsOptions = {
 };
 
 /* Middleware CORS appliquez à toutes les routes */
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 
 /* Récupération des données en POST */
 app.use(express.urlencoded({ extended: false }));
