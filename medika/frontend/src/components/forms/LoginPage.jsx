@@ -8,29 +8,17 @@ const SignupForm = () => {
         event.preventDefault();
 
         const data = new FormData(formRef.current);
-        const firstname = data.get('firstname');
-        const lastname = data.get('lastname');
+
         const email = data.get('email');
         const password = data.get('password');
-        const confirmpassword = data.get('confirmPassword');
-
-        if (password !== confirmpassword) {
-            setError('Les mots de passe ne sont pas identiques');
-            // clear password fields in dom
-            const formField = formRef.current.querySelectorAll('input[type="password"]');
-            formField.forEach(field => field.value = '');
-            return;
-        }
 
         const body = {
-            firstname,
-            lastname,
             email,
             password
         }
 
         console.log(body);
-        const request = await fetch('http://localhost:3000/register', {
+        const request = await fetch('http://localhost:3000/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
