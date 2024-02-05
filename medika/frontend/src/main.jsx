@@ -13,7 +13,7 @@ import AccueilPage from './components/accueilpage/Accueilpage.jsx';
 import UserProfilPage from './pages/user_profil_page.jsx';
 import LoginPage from './components/forms/LoginPage.jsx';
 import SignupForm from './components/forms/SignupForm.jsx';
-// import FormAddAnimals from './components/forms/add_animals/index.jsx';  
+import FormAddAnimals from './components/forms/add_animals/index.jsx';  
 
 const router = createBrowserRouter([
   {
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       { path: "/parametre", element:<p>Paramètres</p>},
       { path: "/login", element:<LoginPage/>},
       { path: "/register", element:<SignupForm/>},
-      // { path: "/add_animals", element:<FormAddAnimals/>},
+      { path: "/add_animals", element:<FormAddAnimals/>},
 
     
     ],

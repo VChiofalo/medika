@@ -7,10 +7,12 @@ const Layout = () => {
   const location = useLocation();
 
   console.log(location);
+  const showNavbar = location.pathname !== "/" && location.pathname !== "/register" && location.pathname !== "/login";
+
   return (
     <div className="flex flex-col justify-between ">
-      {location.pathname === "/" || location.pathname === "/register"|| location.pathname === "/login" ? null : <Navbar />} 
       <Outlet />
+      {showNavbar && <Navbar />}    
     </div>
   );
 };
