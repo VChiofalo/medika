@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { login } from '../../store/slices/userSlice';
+import { login } from '../store/slices/userSlice';
 import {useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 

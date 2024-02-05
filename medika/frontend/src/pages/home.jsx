@@ -1,6 +1,6 @@
-import ProfilPageAnimal from "../../pages/animal_profil_page"
-import AnimalWeightPage from "../../pages/animal_weight_page"
-import FormAddAnimals from "../forms/add_animals";
+import ProfilPageAnimal from "./animal_profil_page"
+import AnimalWeightPage from "./animal_weight_page"
+import FormAddAnimals from "../components/forms/add_animals";
 
 const Home = () => {
     
