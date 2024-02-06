@@ -10,7 +10,7 @@ export default class AuthenticationController {
                 if (infoUser) {
                     if (bcrypt.compareSync(req.body.password, infoUser.password)) {
                         let accessToken = jwt.sign({email: infoUser.email, firstname: infoUser.first_name, lastname: infoUser.last_name}, process.env.JWT_SECRET, {expiresIn: 604800});
-                        res.cookie('token', accessToken, {httpOnly: true, secure: (process.env.APP_ENV === 'production') }).status(200).json({
+                        res.cookie('token', accessToken, {httpOnly: true, secure: (process.env.APP_ENV === 'production') }).status(201).json({
                             message: 'Vous êtes connecté',
                             jwt: accessToken
                         })

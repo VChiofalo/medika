@@ -1,17 +1,16 @@
 import connection from'../../app/database_sql.js'
 
 export default class AnimalRepository {
-    // constructor(connection) {
-    //     this.connection = connection;
-    // }
 
     async add(animal) {
         await connection.promise().query('INSERT INTO `animals` SET ?', animal);
     }
+
     async findAnimalByNameAndUserId(firstname, userId) {
         const found = await this.connection.query('SELECT * FROM animals WHERE firstname = ? AND userId = ?', [firstname, userId]);
         return found[0].length ? found[0][0] : null;
       }
+      
     async getAnimalById(id_animals) {
         return await this.connection.promise().query('SELECT * FROM `animals` WHERE id_animals = ?', [id_animals]).then((result) => {
             return (result[0].length > 0 ? result[0][0] : null);
