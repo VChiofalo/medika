@@ -39,8 +39,6 @@ function AccueilPage() {
 
     preloadImages();
 
-
-
     return () => clearInterval(interval);
 
   }, []);

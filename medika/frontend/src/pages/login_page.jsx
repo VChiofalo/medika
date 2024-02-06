@@ -4,6 +4,7 @@ import { login } from "../store/slices/userSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import Typography from "../components/common/typography";
+import useLoggedUserForbidden from "../hooks/useLoggedUserForbidden";
 
 const LoginPage = () => {
   const formRef = useRef();
@@ -11,6 +12,8 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+
+  useLoggedUserForbidden()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
