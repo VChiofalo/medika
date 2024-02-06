@@ -1,8 +1,8 @@
-import Typography from "../common/typography";
+import Typography from "../../common/typography";
 
 
 function PicturesGalleryCard() {
-const animalsProfilPictures = ["img/doge.jpg", "img/nyan.png", "img/dogSamurai.jpeg","img/nyan.png","img/nyan.png","img/nyan.png","img/nyan.png","img/nyan.png",]
+const animalsProfilPictures = ["images/images_placeholder/doge.jpg", "images/images_placeholder/nyan.png", "images/images_placeholder/dogSamurai.jpeg","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png",]
 const animals = animalsProfilPictures.length
 
 const animalsList = animalsProfilPictures.map((animal) => {

@@ -8,8 +8,8 @@ const SignupForm = () => {
   const [errorApi, setErrorApi] = useState(null);
   const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
       const data = new FormData(formRef.current);
       const firstname = data.get("firstname");

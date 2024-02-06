@@ -1,4 +1,4 @@
-import Typography from "../common/typography";
+import Typography from '../../common/typography';
 
 function VaccineCard({ name, date }) {
     name = 'Tetanos'

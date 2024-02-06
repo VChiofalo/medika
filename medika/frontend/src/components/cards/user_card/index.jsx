@@ -1,8 +1,8 @@
-import Typography from "../common/typography";
+import Typography from "../../common/typography";
 
 
 function UserCard() {
-const animalsProfilPictures = ["img/doge.jpg", "img/nyan.png", "img/dogSamurai.jpeg"]
+const animalsProfilPictures = ["images/images_placeholder/doge.jpg", "images/images_placeholder/nyan.png", "images/images_placeholder/dogSamurai.jpeg"]
 const animals = animalsProfilPictures.length
 const treatements = 2
 
@@ -16,8 +16,8 @@ const animalsList = animalsProfilPictures.map((animal) => {
         <div className="flex flex-col items-center">   
             <div className="flex flex-col items-center  rounded-3xl w-60 pb-4 bg-gradient-to-l from-primary to-secondary">
                 <div className="flex items-center relative mb-10 w-80">
-                    <img src="img/stupidDog.jpg" className="w-full relative rounded-b-full" alt="" />
-                    <img src="img/user.png" className="w-20 rounded-full absolute inset-x-2/4 transform -translate-x-1/2 bottom-0 translate-y-1/2" alt="" />
+                    <img src="images/images_placeholder/stupidDog.jpg" className="w-full relative rounded-b-full" alt="" />
+                    <img src="images/images_placeholder/user.png" className="w-20 rounded-full absolute inset-x-2/4 transform -translate-x-1/2 bottom-0 translate-y-1/2" alt="" />
                 </div>
                 <Typography variant="white" tag="h4">Cameron</Typography>
                 <Typography variant="white">Martin</Typography>

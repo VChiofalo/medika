@@ -1,4 +1,4 @@
-import Typography from "../common/typography";
+import Typography from "../../common/typography";
 import WeightStatusCard from '../weight_status_card'
 import VaccineCard from '../vaccine_card'
 
