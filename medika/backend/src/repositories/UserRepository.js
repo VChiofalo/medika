@@ -16,13 +16,7 @@ export default class UserRepository {
         })
     }
 
-    async getAllUsers(){
-        return await connection.promise().query('SELECT * FROM `users`').then((result) => {
-            return (result[0].length > 0 ? result[0] : null);
-        });
-    }
-
-    async updateUserByEmain(user, email){
+    async updateUserByEmail(user, email){
         return await connection.promise().query('UPDATE `users` SET ? WHERE ?' , [user, {email}])
     }
 

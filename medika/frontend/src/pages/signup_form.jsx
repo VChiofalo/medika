@@ -27,15 +27,6 @@ const SignupForm = () => {
         formField.forEach((field) => (field.value = ""));
         return;
       }
-      if (password !== confirmpassword) {
-        setError("Les mots de passe ne sont pas identiques");
-        // clear password fields in dom
-        const formField = formRef.current.querySelectorAll(
-          'input[type="password"]'
-        );
-        formField.forEach((field) => (field.value = ""));
-        return;
-      }
 
       const body = {
         firstname,
