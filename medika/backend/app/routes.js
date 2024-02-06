@@ -15,7 +15,7 @@ export default (app) => {
      app.get('/api/animals/:id', (req, res) => animalController.getAnimalById(req, res));
      app.put('/api/animals/:id', (req, res) => animalController.updateAnimalById(req, res));
      app.delete('/api/animals/:id', (req, res) => animalController.deleteAnimalById(req, res));
-     // app.get('/api/users/:id', (req, res) => userController.getUserById(req, res));
+     app.get('/api/users/:name', (req, res) => userController.getUserByEmail(req, res));
      // app.put('/api/users/:id', (req, res) => userController.updateUserById(req, res));
      // app.delete('/api/users/:id', (req, res) => userController.deleteUserById(req, res));
 };
