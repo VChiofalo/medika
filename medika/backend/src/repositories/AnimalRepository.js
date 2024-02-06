@@ -2,9 +2,14 @@ import connection from'../../app/database_sql.js'
 
 export default class AnimalRepository {
 
-    async add(animal) {
-        await connection.promise().query('INSERT INTO `animals` SET ?', animal);
-    }
+    // async add(animal) {
+    //     await connection.promise().query('INSERT INTO `animals` SET ?', animal);
+    // }
+    async addAnimal({ last_name, first_name, birthdate, breed_name, gender,mutual, user_email }) {
+        const sql = 'INSERT INTO animals (first_name, last_name, birthdate, gender,  mutual,  user_email) VALUES (?, ?, ?, ?, ?, ?)';
+        const values = [ first_name, last_name, birthdate, breed_name, gender, mutual, user_email];
+        await connection.promise().query(sql, values);
+      }
 
     async findAnimalByNameAndUserId(firstname, userId) {
         const found = await this.connection.query('SELECT * FROM animals WHERE firstname = ? AND userId = ?', [firstname, userId]);
