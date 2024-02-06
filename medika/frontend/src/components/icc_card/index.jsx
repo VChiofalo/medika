@@ -22,7 +22,7 @@ function IccCard({ icc }) {
                 </div>
             </div>
             <button className="flex items-center rounded-full gap-2 p-2 border-orange-500">
-                    <i class="fa-solid fa-plus"></i>
+                    <i className="fa-solid fa-plus"></i>
                     <Typography>
                         Mettre a jour le poid
                     </Typography>

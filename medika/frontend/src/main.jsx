@@ -9,7 +9,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layout from './components/layout/Layout.jsx';
 
 import Home from './pages/home.jsx';
-import Hom from './pages/hom.jsx';
+import Hom from './components/hom_animal/hom.jsx';
 import AccueilPage from './pages/Accueilpage.jsx';
 import UserProfilPage from './pages/user_profil_page.jsx';
 import LoginPage from './pages/LoginPage.jsx'
