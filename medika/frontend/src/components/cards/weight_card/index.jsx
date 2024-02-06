@@ -1,4 +1,4 @@
-import Typography from "../common/typography";
+import Typography from "../../common/typography";
 
 function WeightCard({ weight, previous_weight }) {
     weight = "12"

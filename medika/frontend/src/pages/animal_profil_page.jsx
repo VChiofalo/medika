@@ -1,5 +1,5 @@
-    import AnimalCard from '../components/animal_card'
-    import SupervisionCard from '../components/supervision_card'
+    import AnimalCard from '../components/cards/animal_card'
+    import SupervisionCard from '../components/cards/supervision_card'
 import useLogged from '../hooks/useLogged'
 
 function ProfilPageAnimal() {

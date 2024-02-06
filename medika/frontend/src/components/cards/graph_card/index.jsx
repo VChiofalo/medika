@@ -1,4 +1,4 @@
-import ChartGraph from "../chart";
+import ChartGraph from "../../chart";
 
 function GraphCard({ years }) {
   years = ["2023", "2022"];

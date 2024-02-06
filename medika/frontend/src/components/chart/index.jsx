@@ -44,7 +44,7 @@ function ChartGraph() {
         },
       };
       const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      const weight = [ 10, 20, 25, 22, 23, 21, 25, 24, 26, 26, 23, 0]
+      const weight = [ 17, 20, 25, 22, 23, 21, 25, 24, 26, 26, 23, 22]
     const data = {
         labels,
         datasets: [
