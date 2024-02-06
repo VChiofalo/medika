@@ -23,7 +23,7 @@ export default class RegisterController {
                     })
                 } else {
                         userRepo.add(entity).then(()=>{
-                            res.status(200).json({
+                            res.status(201).json({
                                 message: `Votre compte a bien été créé. Vous pouvez vous connecter avec vos identifiants !`
                             })
                         })
