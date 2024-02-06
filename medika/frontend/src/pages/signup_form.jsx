@@ -1,12 +1,15 @@
 import { useRef, useState } from "react";
 import Typography from "../components/common/typography";
 import { useNavigate } from "react-router-dom";
+import useLoggedUserForbidden from "../hooks/useLoggedUserForbidden";
 
 const SignupForm = () => {
   const formRef = useRef();
   const [error, setError] = useState(null);
   const [errorApi, setErrorApi] = useState(null);
   const navigate = useNavigate();
+
+  useLoggedUserForbidden()
 
     const handleSubmit = async (event) => {
         event.preventDefault();
