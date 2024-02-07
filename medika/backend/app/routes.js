@@ -1,7 +1,5 @@
-// import authenticateJWT from "../src/middleware/authenticateJWT.js";
 import RegisterController from "../src/controllers/RegisterController/RegisterController.js";
 import AuthenticationController from "../src/controllers/AuthenticationController/AuthenticationController.js";
-// import UserController from "../src/controllers/UserController/UserController.js";
 import AnimalController from "../src/controllers/AnimalController/AnimalController.js"
 import PictureController from "../src/controllers/PictureController/PictureController.js";
 import { userExists } from "../src/services/jwtService.js";
@@ -18,10 +16,8 @@ export default (app) => {
      
      app.use('/api', userExists);
 
-     app.post('/api/add_animals', (req, res) => animalController.addAnimal(req, res));
+     app.post('/api/animal', (req, res) => animalController.addAnimal(req, res));
      app.get('/api/animals', (req, res) => animalController.getAnimalById(req, res));
-     app.put('/api/animals', (req, res) => animalController.updateAnimalById(req, res));
-     app.delete('/api/animals', (req, res) => animalController.deleteAnimalById(req, res));
      app.get('/api/users', (req, res) => userController.getUserByEmail(req, res));
      app.post('/api/user/picture', upload, (req, res) => pictureController.addUserPictureProcess(req, res));
      app.post('/api/animal/picture', upload, (req, res) => pictureController.addAnimalPictureProcess(req, res));
