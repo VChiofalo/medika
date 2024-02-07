@@ -1,4 +1,4 @@
-import SpeciesRepository from "../../repositories/SpeciesRepository";
+import SpeciesRepository from "../../repositories/SpeciesRepository.js";
 
 export default class SpeciesController{
     getAllSpeciesProcces(req, res){
