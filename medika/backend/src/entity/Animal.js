@@ -70,6 +70,7 @@ export default class Animal {
     getWeight() {
         return this.weight;
     }
+    
     setWeight(weight) {
         this.weight = weight;
         return this;
