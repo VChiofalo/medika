@@ -20,9 +20,8 @@ export default (app) => {
      
      app.use('/api', userExists);
 
-
      app.get('/api/species', (req, res) => speciesController.getAllSpeciesProcces(req, res));
-     app.get('/api/breeds', (req, res) => breedController.getBreedProccess(req, res));
+     app.post('/api/breeds', (req, res) => breedController.getBreedProccess(req, res));
      app.post('/api/animal', (req, res) => animalController.addAnimal(req, res));
      app.get('/api/animals', (req, res) => animalController.getAnimalById(req, res));
      app.get('/api/users', (req, res) => userController.getUserByEmail(req, res));
@@ -30,6 +29,5 @@ export default (app) => {
      app.post('/api/animal/picture', upload, (req, res) => pictureController.addAnimalPictureProcess(req, res));
      app.get('/api/user/pictures', (req, res) => pictureController.getUserPicturesProcess(req, res));
      app.get('/api/animal/pictures', (req, res) => pictureController.getAnimalPicturesProcess(req, res));
-
 };
 

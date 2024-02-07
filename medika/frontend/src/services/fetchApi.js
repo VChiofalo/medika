@@ -1,9 +1,9 @@
-const fetchApi = (url, method, body = null ) => {
+const fetchApi = (url, method, test = null ) => {
     if(['GET', 'DELETE'].includes(method)) {
         return fetchApiWithoutBody(url, method);
     }
     else if(['POST', 'PUT'].includes(method) ) {
-        return fetchApiWithBody(url, method, body);
+        return fetchApiWithBody(url, method, test);
     }
 
     function fetchApiWithoutBody(url, method){     
@@ -13,11 +13,10 @@ const fetchApi = (url, method, body = null ) => {
               'Content-Type': 'application/json',   
                Accept : 'application/json',
                Authorization : `Bearer ${localStorage.getItem('storeSaved').jwt}`
-
             },
          }).then( response => response.json());
     }
-    function fetchApiWithBody(url, method, body) {     
+    function fetchApiWithBody(url, method, test) {     
         return fetch (url, {
             method: method, 
              headers: {
@@ -26,7 +25,7 @@ const fetchApi = (url, method, body = null ) => {
                Authorization : `Bearer ${localStorage.getItem('storeSaved').jwt}`
 
             },
-             body: JSON.stringify(body),
+             body: JSON.stringify(test),
  
         }).then(response => response.json());
     }

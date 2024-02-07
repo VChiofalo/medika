@@ -5,8 +5,9 @@ import fetchApi from '../../../services/fetchApi.js';
 
 const FormAddAnimals =  () => {
     const formRef = useRef(null);
-    const [error, setError] = useState(null);
+    const [isVisible, setIsVisible] = useState(false);
     const [species, setSpecies] = useState([]);
+    const [breeds, setBreeds] = useState([])
     useEffect(() => {
       fetchApi('http://localhost:3000/api/species', 'GET').then(data => setSpecies(data.species));
     }, []);
@@ -26,12 +27,47 @@ const FormAddAnimals =  () => {
 
         console.log('Formulaire soumis', { breedname, lastname, firstname, birthdate, gender });
     };
-    const speciesSelected= () => {
+
+    const handleSelectChange = async ()=>{
+      const data = new FormData(formRef.current);
+      const specie = data.get("species");
+
+      const specieSelect = specie;
+
+      console.log(JSON.stringify(specieSelect));
+
+      setIsVisible(true);
+      fetchApi('http://localhost:3000/api/breeds', 'POST', specieSelect).then(data => setBreeds(data.breeds));
+      console.log(breeds);
+    }
+
+    const speciesSelected = () => {
         return species.map((specie) => {
            return (
            <option key={specie} value={specie}>{specie}</option>
            )
         });
+    }
+
+    
+    const breedsOption = () => {
+      return(
+        <option key={breeds} value={breeds}>{breeds}</option>
+      )
+    }
+
+    const breedsSelected = () => {
+      return (
+        <>
+          <div className="mb-4">
+            <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
+            <select name="species" className="border-2 rounded w-full p-2">
+              <option value="">Sélectionnez la race de votre animal</option>
+              {breeds.length > 0 ? breedsOption() : null}
+            </select>
+          </div>
+        </>
+      )
     }
         return (
             <>
@@ -42,19 +78,12 @@ const FormAddAnimals =  () => {
                   <form ref={formRef} onSubmit={handleSubmit}>
                     <div className="mb-4">
                       <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
-                      <select name="species" className="border-2 rounded w-full p-2">
+                      <select name="species" className="border-2 rounded w-full p-2" onChange={handleSelectChange}>
                         <option value="">Selectionner l'espece de votre animal</option>
                         {species.length > 0 ? speciesSelected() : null}
                       </select>
                     </div>
-                    <div className="mb-4 hidden">
-                      <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
-                      <select name="species" className="border-2 rounded w-full p-2">
-                        <option value="dog">Chien</option>
-                        <option value="cat">Chat</option>
-                        <option value="penguin">Penguin</option>
-                      </select>
-                    </div>
+                    {isVisible ? breedsSelected() : null}
                     <div className="mb-4">
                       <label htmlFor="lastname" className="block text-lg font-semibold mb-2">Nom</label>
                       <input name="lastname" type="text" className="border-2 rounded w-full p-2" placeholder="Nom de l'animal"/>
