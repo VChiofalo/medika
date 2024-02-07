@@ -14,7 +14,7 @@ function Navbar() {
                     null
                     }
                 </Link>
-                <Link to="/" className="flex items-center rounded-full bg-white p-1 px-2 gap-2">
+                <Link to="/home" className="flex items-center rounded-full bg-white p-1 px-2 gap-2">
                     <i className="fa-solid fa-house"></i>
                     {location.pathname == "/home" ? 
                     <Typography>Home</Typography> :
