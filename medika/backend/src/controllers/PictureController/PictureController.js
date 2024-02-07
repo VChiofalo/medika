@@ -9,18 +9,17 @@ export default class PictureController{
                 error: true
             })
         } else {
-            try {
-                pictureRepository.addUserPicture({slug: `/assets/pictures/${req.filename}`, user_email: req.user_email}).then(()=>{
-                    res.status(201).json({
-                        message: `Votre image est sauvegardé`
-                    })
+            pictureRepository.addUserPicture(`/assets/pictures/${req.filename}`, req.user_email).then(()=>{ 
+                res.status(201).json({
+                    message: `Votre image est sauvegardé`
                 })
-            } catch (error) {
+               
+            }).catch((error) => {
                 res.status(500).json({ 
-                    message: 'Erreur',
+                    message: 'Erreur :'+error.message,
                     error: true
                 });
-            }
+            });
         }
     }
 
@@ -32,18 +31,17 @@ export default class PictureController{
                 error: true
             })
         } else {
-            try {
-                pictureRepository.addAnimalPicture({slug: `/assets/pictures/${req.filename}`, id_animals: req.body.id_animals}).then(()=>{
-                    res.status(201).json({
-                        message: `Votre image est sauvegardé`
-                    })
+            pictureRepository.addAnimalPicture(`/assets/pictures/${req.filename}`, id_animals).then(()=>{ 
+                res.status(201).json({
+                    message: `Votre image est sauvegardé`
                 })
-            } catch (error) {
+               
+            }).catch((error) => {
                 res.status(500).json({ 
-                    message: 'Erreur',
+                    message: 'Erreur :'+error.message,
                     error: true
-                });    
-            }
+                });
+            });
         }
     }
 }
