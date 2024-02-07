@@ -12,10 +12,7 @@ export default class AnimalController {
             .setMutual(req.body.mutual) 
             .setBreedName(req.body.breed_name) 
             .setUserEmail(req.user_email);
-        // const { first_name, last_name, birthday, gender,  mutual, user_email } = req.body;
-        // const useremail = req.user.email;
-
-        // Vérification si un animal avec le même nom pour le même utilisateur existe déjà
+      
         animalRepository.findAnimalByNameAndUserId(req.body.first_name, req.user_email).then((existingAnimal) => {
             if (existingAnimal) {
                 return res.status(400).json({
