@@ -6,6 +6,7 @@ export default class SpeciesController{
         try {
             speciesRepository.getAllSpecies().then((species)=>{
                 if (species) {
+                    species = species.map((specie)=>specie.name)
                     res.status(200).json({
                         species
                     })

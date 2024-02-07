@@ -1,9 +1,18 @@
-import React, { useRef } from 'react';
+import {useRef, useState, useEffect} from 'react';
 import Typography from "../../common/typography";
 import Header from "../../header";
+import fetchApi from '../../../services/fetchApi.js';
 
-const FormAddAnimals = () => {
+const FormAddAnimals =  () => {
     const formRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const [species, setSpecies] = useState([]);
+    const [breeds, setBreeds] = useState([])
+    useEffect(() => {
+      fetchApi('http://localhost:3000/api/species', 'GET').then(data => setSpecies(data.species));
+    }, []);
+   
+     
     const handleSubmit = async (event) => {
         event.preventDefault();
         
@@ -14,10 +23,52 @@ const FormAddAnimals = () => {
         const birthdate = data.get("birthdate");
         const gender = data.get("gender");
 
-        // Traitement des données ici
+        const body = { breedname, lastname, firstname, birthdate, gender };
 
         console.log('Formulaire soumis', { breedname, lastname, firstname, birthdate, gender });
     };
+
+    const handleSelectChange = async ()=>{
+      const data = new FormData(formRef.current);
+      const specie = data.get("species");
+
+      const specieSelect = specie;
+
+      console.log(JSON.stringify(specieSelect));
+
+      setIsVisible(true);
+      fetchApi('http://localhost:3000/api/breeds', 'POST', specieSelect).then(data => setBreeds(data.breeds));
+      console.log(breeds);
+    }
+
+    const speciesSelected = () => {
+        return species.map((specie) => {
+           return (
+           <option key={specie} value={specie}>{specie}</option>
+           )
+        });
+    }
+
+    
+    const breedsOption = () => {
+      return(
+        <option key={breeds} value={breeds}>{breeds}</option>
+      )
+    }
+
+    const breedsSelected = () => {
+      return (
+        <>
+          <div className="mb-4">
+            <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
+            <select name="species" className="border-2 rounded w-full p-2">
+              <option value="">Sélectionnez la race de votre animal</option>
+              {breeds.length > 0 ? breedsOption() : null}
+            </select>
+          </div>
+        </>
+      )
+    }
         return (
             <>
               <Header />
@@ -26,21 +77,13 @@ const FormAddAnimals = () => {
                   <Typography variant="h1" className="text-center mb-6">Ajouter un animal</Typography>
                   <form ref={formRef} onSubmit={handleSubmit}>
                     <div className="mb-4">
-                      <label htmlFor="breedname" className="block text-lg font-semibold mb-2">Espèce</label>
-                      <select name="breedname" className="border-2 rounded w-full p-2">
-                        <option value="dog">Chien</option>
-                        <option value="cat">Chat</option>
-                        <option value="penguin">Penguin</option>
-                      </select>
-                    </div>
-                    <div className="mb-4 hidden">
                       <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
-                      <select name="species" className="border-2 rounded w-full p-2">
-                        <option value="dog">Chien</option>
-                        <option value="cat">Chat</option>
-                        <option value="penguin">Penguin</option>
+                      <select name="species" className="border-2 rounded w-full p-2" onChange={handleSelectChange}>
+                        <option value="">Selectionner l'espece de votre animal</option>
+                        {species.length > 0 ? speciesSelected() : null}
                       </select>
                     </div>
+                    {isVisible ? breedsSelected() : null}
                     <div className="mb-4">
                       <label htmlFor="lastname" className="block text-lg font-semibold mb-2">Nom</label>
                       <input name="lastname" type="text" className="border-2 rounded w-full p-2" placeholder="Nom de l'animal"/>
