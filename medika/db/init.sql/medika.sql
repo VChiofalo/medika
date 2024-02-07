@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db:3306
--- Généré le : ven. 02 fév. 2024 à 14:24
+-- Généré le : mer. 07 fév. 2024 à 13:40
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.14
 
@@ -169,7 +169,6 @@ CREATE TABLE `weight` (
 --
 ALTER TABLE `animals`
   ADD PRIMARY KEY (`id_animals`),
-  ADD UNIQUE KEY `mutual` (`mutual`),
   ADD KEY `breed_name` (`breed_name`),
   ADD KEY `user_email` (`user_email`);
 
