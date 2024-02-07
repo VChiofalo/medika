@@ -38,7 +38,7 @@ const SignupForm = () => {
         password,
       };
 
-      const request = await fetch("http://localhost:3000/api/register", {
+      const request = await fetch("http://localhost:3000/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ const SignupForm = () => {
     };
 
     return (
-      <div className="bg-white min-h-screen">
+      <div className="bg-[#EDEDED] min-h-screen">
         <div
           style={{
             display: "flex",
@@ -107,7 +107,7 @@ const SignupForm = () => {
               required
               placeholder="Prénom"
               style={{ marginBottom: "5px" }}
-              className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
+              className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-[#EDEDED] pr-4 py-2.5"
             />
           </div>
           <div style={{ marginBottom: "10px" }} className="flex flex-col">
@@ -121,7 +121,7 @@ const SignupForm = () => {
               required
               placeholder="Nom"
               style={{ marginBottom: "5px" }}
-              className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
+              className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-[#EDEDED] pr-4 py-2.5"
             />
           </div>
           {errorApi && (
@@ -144,7 +144,7 @@ const SignupForm = () => {
               required
               placeholder="Email"
               style={{ marginBottom: "5px" }}
-              className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
+              className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-[#EDEDED] pr-4 py-2.5"
             />
           </div>
           {error && (
@@ -167,7 +167,7 @@ const SignupForm = () => {
               required
               placeholder="Mot de passe"
               style={{ marginBottom: "5px" }}
-              className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
+              className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-[#EDEDED] pr-4 py-2.5"
             />
           </div>
           <div style={{ marginBottom: "10px" }} className="flex flex-col">
@@ -181,7 +181,7 @@ const SignupForm = () => {
               required
               placeholder="Confirmer le mot de passe"
               style={{ marginBottom: "5px" }}
-              className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
+              className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-[#EDEDED] pr-4 py-2.5"
             />
           </div>
           <div className="flex justify-center">

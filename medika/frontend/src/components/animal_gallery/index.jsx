@@ -1,6 +1,8 @@
 
 import { Link } from "react-router-dom";
 import useLogged from "../../hooks/useLogged";
+import Typography from "../common/typography";
+
 function AnimalGallery() {
 
     useLogged();
@@ -17,6 +19,7 @@ function AnimalGallery() {
             birthday: "01/11/1999",
             breed: "Husky",
             gender: "Female",
+
             image: "images/chient.jpg",
         },
     ];
@@ -27,60 +30,34 @@ function AnimalGallery() {
                     <div className="overflow-hidden  shadow transition hover:shadow-lg ">
                             <img
                             alt="Office"
-                            src="/images/chient.png"
+                            src= {info.image}
                             className="h-56 w-full object-cover"
                         />
                         
-
-                        <div className="bg-white p-4 sm:p-6">
-                            <h3 className="mt-0.5 text-lg text-black text-center fontsize-24">{info.name}</h3>
+                        <div className="flex flex-col items-center bg-white p-4 sm:p-6">
+                            <Typography tag="h3">{info.name}</Typography>
                             <div style={{
                                         width: "100%",
                                         height: "1px",
-                                        backgroundColor: "#151515",
+                                        backgroundColor: "#EDEDED",
                                         borderRadius: "50%",
                                         margin: "5px",
                                         
                                     }}></div>
-                           <div className="flex justify-between p-4 sm:p-6">
-                                <div>
-                                    <div style={{
-                                        width: "20px",
-                                        height: "20px",
-                                        backgroundColor: "#009688",
-                                        borderRadius: "50%",
-                                        margin: "5px",
-                                        
-                                    }}>
-                                        
-                                    </div>
-                                    <h3 >{info.breed}</h3>
+
+                           <div className="flex divide-x-2 p-4 sm:p-6">
+                                <div className="flex flex-col  items-center px-4">
+                                <div className="bg-primary h-6 w-6 rounded-full"></div>
+                                    <Typography>{info.breed}</Typography>
                                 </div>
-                                <div>
-                                    <div style={{
-                                        width: "20px",
-                                        height: "20px",
-                                        backgroundColor: "#E15100",
-                                        borderRadius: "50%",
-                                        margin: "5px",
-                                        
-                                    }}>
-                                        
-                                    </div>
-                                    <h3>{info.birthday}</h3>
+                                <div className="flex flex-col items-center px-4">
+                                    <div className="bg-accentuary h-6 w-6 rounded-full"></div>
+                                    <Typography>{info.birthday}</Typography>
                                 </div>
-                                <div>
-                                    <div style={{
-                                        width: "20px",
-                                        height: "20px",
-                                        backgroundColor: "#79BAF6",
-                                        borderRadius: "50%",
-                                        margin: "5px",
-                                        
-                                    }}>
-                                        
-                                    </div>
-                                    <h3>{info.gender}</h3>
+                                <div className="flex flex-col items-center px-4">
+                                <div className="bg-secondary h-6 w-6 rounded-full"></div>
+
+                                    <Typography>{info.gender}</Typography>
                                 </div>
                            </div>
                         </div>
