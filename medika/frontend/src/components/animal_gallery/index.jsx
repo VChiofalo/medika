@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import useLogged from "../../hooks/useLogged";
 import Typography from "../common/typography";
+
 function AnimalGallery() {
 
     useLogged();
@@ -18,7 +19,8 @@ function AnimalGallery() {
             birthday: "01/11/1999",
             breed: "Husky",
             gender: "Female",
-            image: "images/chient.png",
+
+            image: "images/chient.jpg",
         },
     ];
     const infolist = info.map((info) => {
@@ -32,7 +34,6 @@ function AnimalGallery() {
                             className="h-56 w-full object-cover"
                         />
                         
-
                         <div className="flex flex-col items-center bg-white p-4 sm:p-6">
                             <Typography tag="h3">{info.name}</Typography>
                             <div style={{
@@ -43,6 +44,7 @@ function AnimalGallery() {
                                         margin: "5px",
                                         
                                     }}></div>
+
                            <div className="flex divide-x-2 p-4 sm:p-6">
                                 <div className="flex flex-col  items-center px-4">
                                 <div className="bg-primary h-6 w-6 rounded-full"></div>

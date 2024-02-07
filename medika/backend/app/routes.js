@@ -1,3 +1,4 @@
+import authenticateJWT from "../src/middleware/authenticateJWT.js";
 import RegisterController from "../src/controllers/RegisterController/RegisterController.js";
 import AuthenticationController from '../src/controllers/AuthenticationController/AuthenticationController.js';
 import AnimalController from "../src/controllers/AnimalController/AnimalController.js"
@@ -31,5 +32,6 @@ export default (app) => {
      app.post('/api/animal/picture', upload, (req, res) => pictureController.addAnimalPictureProcess(req, res));
      app.get('/api/user/pictures', (req, res) => pictureController.getUserPicturesProcess(req, res));
      app.get('/api/animal/pictures', (req, res) => pictureController.getAnimalPicturesProcess(req, res));
+
 };
 

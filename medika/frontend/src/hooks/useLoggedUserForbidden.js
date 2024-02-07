@@ -10,10 +10,9 @@ const useLoggedUserForbidden = () => {
 useEffect(() => {
     
     if(user) {
-        navigate('/home')
+        navigate('/logout')
     }
     },[])
-
 }
 
 export default useLoggedUserForbidden;
