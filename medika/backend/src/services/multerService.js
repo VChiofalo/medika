@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
     // to indicate if the file should be accepted
   
     // To reject this file pass `false`, like so:
-    console.log(file.mimetype );
+    console.log(file.mimetype);
     if ( file.mimetype != 'image/png') {
         req.errorMessage = `Format non reconnue`;
         return cb(null, false)
