@@ -33,6 +33,14 @@ const FormAddAnimals = () => {
                         <option value="penguin">Penguin</option>
                       </select>
                     </div>
+                    <div className="mb-4 hidden">
+                      <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
+                      <select name="species" className="border-2 rounded w-full p-2">
+                        <option value="dog">Chien</option>
+                        <option value="cat">Chat</option>
+                        <option value="penguin">Penguin</option>
+                      </select>
+                    </div>
                     <div className="mb-4">
                       <label htmlFor="lastname" className="block text-lg font-semibold mb-2">Nom</label>
                       <input name="lastname" type="text" className="border-2 rounded w-full p-2" placeholder="Nom de l'animal"/>

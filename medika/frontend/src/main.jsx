@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+
 import { Provider } from 'react-redux'
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -18,6 +19,7 @@ import AnimalGallery from './components/animal_gallery/index.jsx';
 import ProfilPageAnimal from './pages/animal_profil_page.jsx';
 import Parameter from './pages/parametres.jsx';
 import LogoutPage from './pages/logoutPage';
+
 
 const router = createBrowserRouter([
   {

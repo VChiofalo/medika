@@ -13,7 +13,6 @@ useEffect(() => {
         navigate('/logout')
     }
     },[])
-
 }
 
 export default useLoggedUserForbidden;
