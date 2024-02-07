@@ -9,14 +9,39 @@ const LogoutPage = () => {
       navigate('/');
     }, 2500);
 
-    // Assurez-vous de nettoyer le timeout lorsque le composant est démonté
     return () => clearTimeout(timeoutId);
   }, [navigate]);
   
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1 style={{ fontSize: '24px', color: '#333' }}>Vous êtes déconnecté</h1>
-      <Link to="/" style={{ display: 'block', marginTop: '20px', fontSize: '18px' }}>Accueil_page</Link>
+    <div>
+      <div
+        style={{
+          marginBottom: '20px',
+          textAlign: 'center',
+        }}
+        className="bg-primary py-6 rounded-b-lg"
+      >
+        <div className="flex justify-center">
+          <img
+            src="/images/Medika.png"
+            alt="Main Logo"
+            style={{ width: '90px', height: '25px', marginRight: '0px' }}
+          />
+          <img
+            src="/images/Frame18.png"
+            alt="Second Logo"
+            style={{
+              width: '20px',
+              height: '20px',
+              marginLeft: '0px',
+              marginBottom: '5px',
+            }}
+          />
+        </div>
+      </div>
+      <div style={{ textAlign: 'center', marginTop: '50px' }}>
+        <h1 style={{ fontSize: '24px', color: '#333' }}>Vous êtes bien déconnecté</h1>
+      </div>
     </div>
   );
 };

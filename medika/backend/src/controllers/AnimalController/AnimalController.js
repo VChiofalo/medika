@@ -1,24 +1,30 @@
 import AnimalRepository from '../../repositories/AnimalRepository.js';
-
+import Animal from '../../entity/Animal.js';
 export default class AnimalController {
 
     addAnimal(req, res) {
         const animalRepository = new AnimalRepository();
- 
-        // const { first_name, last_name, birthday, gender,  mutual, user_email } = req.body;
-        // const useremail = req.user.email;
-
-        // Vérification si un animal avec le même nom pour le même utilisateur existe déjà
-        animalRepository.findAnimalByNameAndUserId(req.body.first_name, req.body.user_email).then((existingAnimal) => {
+        let entity = new Animal();
+        entity.setFirstName(req.body.first_name)
+            .setLastName(req.body.last_name)  
+            .setBirthday(req.body.birthday)
+            .setGender(req.body.gender) 
+            .setMutual(req.body.mutual) 
+            .setBreedName(req.body.breed_name) 
+            .setUserEmail(req.user_email);
+      
+        animalRepository.findAnimalByNameAndUserId(req.body.first_name, req.user_email).then((existingAnimal) => {
             if (existingAnimal) {
                 return res.status(400).json({
                     message: "Un animal avec ce nom existe déjà pour cet utilisateur.",
                     error: true
                 });
             } else {
-                return res.status(200).json({
-                    message: "On va créer un nouveau chien."
-                }); 
+                animalRepository.addAnimal(entity).then(() => {
+                    return res.status(200).json({
+                        message: "On va créer un nouveau chien."
+                    }); 
+                })
             }
         }).catch((error) => {
             res.status(500).json({
@@ -27,6 +33,7 @@ export default class AnimalController {
             });
         });
     }
+
 
     async getAnimalById(req, res) {
         const animalRepository = new AnimalRepository();
