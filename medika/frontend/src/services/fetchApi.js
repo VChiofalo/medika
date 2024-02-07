@@ -12,7 +12,7 @@ const fetchApi = (url, method, body = null ) => {
              headers: {
               'Content-Type': 'application/json',   
                Accept : 'application/json',
-               Authorization : `Bearer ${localStorage.getItem('storeSaved').jwt}`
+               Authorization : `Bearer ${JSON.parse(localStorage.getItem('storeSaved')).user.currentUser.jwt}`
             },
          }).then( response => response.json());
     }
@@ -22,7 +22,7 @@ const fetchApi = (url, method, body = null ) => {
             method: method, 
             headers: {
             "Content-Type": "application/json",
-            Authorization : `Bearer ${localStorage.getItem('storeSaved').jwt}`
+            Authorization : `Bearer ${JSON.parse(localStorage.getItem('storeSaved')).user.currentUser.jwt}`
             },
             body: JSON.stringify(body)
         }).then(response => response.json());

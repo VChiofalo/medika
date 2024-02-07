@@ -7,7 +7,7 @@ const FormAddAnimals =  () => {
     const formRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
     const [species, setSpecies] = useState([]);
-    const [breeds, setBreeds] = useState([])
+    const [breeds, setBreeds] = useState([]);
     useEffect(() => {
       fetchApi('http://localhost:3000/api/species', 'GET').then(data => setSpecies(data.species));
     }, []);
@@ -15,6 +15,8 @@ const FormAddAnimals =  () => {
      
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        // const lsParse = JSON.parse(localStorage.getItem('storeSaved'))
         
         const data = new FormData(formRef.current);
         const first_name = data.get("firstname");
