@@ -38,10 +38,40 @@ export default class PictureController{
                
             }).catch((error) => {
                 res.status(500).json({ 
-                    message: 'Erreur :'+error.message,
+                    message: 'Erreur :',
                     error: true
                 });
             });
         }
+    }
+
+    getUserPicturesProcess(req, res){
+        const pictureRepository = new PictureRepository();
+        pictureRepository.getUserPictures(req.user_email).then((pictures) =>{
+            pictures = pictures.map((picture)=>picture.slug)
+            res.status(200).json({
+                pictures
+            })
+        }).catch((error) => {
+            res.status(500).json({ 
+                message: 'Erreur :',
+                error: true
+            });
+        });
+    }
+
+    getAnimalPicturesProcess(req, res){
+        const pictureRepository = new PictureRepository();
+        pictureRepository.getAnimalPictures(req.id_animals).then((pictures) =>{
+            pictures = pictures.map((picture)=>picture.slug)
+            res.status(200).json({
+                pictures
+            })
+        }).catch((error) => {
+            res.status(500).json({ 
+                message: 'Erreur :',
+                error: true
+            });
+        });
     }
 }
