@@ -1,4 +1,4 @@
-import BreedRepository from "../../repositories/BreedRpository"
+import BreedRepository from "../../repositories/BreedRpository.js"
 
 export default class BreedController{
     async getBreedProccess(req, res){
@@ -6,6 +6,7 @@ export default class BreedController{
         try {
             breedRepository.getBreedBySpecies(req.body.species).then((breeds)=>{
                 if (breeds) {
+                    breeds = breeds.map((breed)=> breed.name)
                     res.status(200).json({
                         breeds
                     })
