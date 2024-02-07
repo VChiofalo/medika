@@ -1,9 +1,9 @@
-const fetchApi = (url, method, test = null ) => {
+const fetchApi = (url, method, body = null ) => {
     if(['GET', 'DELETE'].includes(method)) {
         return fetchApiWithoutBody(url, method);
     }
     else if(['POST', 'PUT'].includes(method) ) {
-        return fetchApiWithBody(url, method, test);
+        return fetchApiWithBody(url, method, body);
     }
 
     function fetchApiWithoutBody(url, method){     
@@ -16,17 +16,15 @@ const fetchApi = (url, method, test = null ) => {
             },
          }).then( response => response.json());
     }
-    function fetchApiWithBody(url, method, test) {     
+    function fetchApiWithBody(url, method, body) {     
         return fetch (url, {
+            mode: 'cors',
             method: method, 
-             headers: {
-              'Content-Type': 'application/json',   
-               Accept : 'application/json',
-               Authorization : `Bearer ${localStorage.getItem('storeSaved').jwt}`
-
+            headers: {
+            "Content-Type": "application/json",
+            Authorization : `Bearer ${localStorage.getItem('storeSaved').jwt}`
             },
-             body: JSON.stringify(test),
- 
+            body: JSON.stringify(body)
         }).then(response => response.json());
     }
 }

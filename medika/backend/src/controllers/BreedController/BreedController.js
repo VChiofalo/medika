@@ -3,15 +3,17 @@ import BreedRepository from "../../repositories/BreedRpository.js"
 export default class BreedController{
     async getBreedProccess(req, res){
         const breedRepository = new BreedRepository();
+        console.log("req.body : ", req.body.species_name);
         try {
-            breedRepository.getBreedBySpecies(req.body.species).then((breeds)=>{
+            breedRepository.getBreedBySpecies(req.body.species_name).then((breeds)=>{
                 if (breeds) {
                     breeds = breeds.map((breed)=> breed.name)
+                    console.log("breeds : ", breeds);
                     res.status(200).json({
                         breeds
                     })
                 } else {
-                    res.status(410).json({
+                    res.status(404).json({
                         message: `Erreur`,
                         error: true
                     })
@@ -22,7 +24,6 @@ export default class BreedController{
                 message: 'Erreur',
                 error: true
             });
-            
         }
     }
 }

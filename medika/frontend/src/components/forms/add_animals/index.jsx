@@ -17,28 +17,46 @@ const FormAddAnimals =  () => {
         event.preventDefault();
         
         const data = new FormData(formRef.current);
-        const breedname = data.get("breedname");
-        const lastname = data.get("lastname");
-        const firstname = data.get("firstname");
-        const birthdate = data.get("birthdate");
+        const first_name = data.get("firstname");
+        const last_name = data.get("lastname");
+        const birthday = data.get("birthdate");
         const gender = data.get("gender");
+        const breed_name = data.get("breedname");
 
-        const body = { breedname, lastname, firstname, birthdate, gender };
+        const body = {
+          first_name,
+          last_name,
+          birthday,
+          gender,
+          breed_name
+        };
 
-        console.log('Formulaire soumis', { breedname, lastname, firstname, birthdate, gender });
+        fetchApi('http://localhost:3000/api/animal', 'POST', body).then((response) => {
+          response.json();
+        })
+
+        console.log('Formulaire soumis', {
+          first_name,
+          last_name,
+          birthday,
+          gender,
+          breed_name
+        });
     };
 
-    const handleSelectChange = async ()=>{
+    const handleSelectChange = ()=>{
       const data = new FormData(formRef.current);
       const specie = data.get("species");
 
-      const specieSelect = specie;
+      const body = {species_name: specie};
 
-      console.log(JSON.stringify(specieSelect));
+      console.log(body);
 
       setIsVisible(true);
-      fetchApi('http://localhost:3000/api/breeds', 'POST', specieSelect).then(data => setBreeds(data.breeds));
-      console.log(breeds);
+      fetchApi('http://localhost:3000/api/breeds', 'POST', body).then(data => {
+        setBreeds(data.breeds);
+        console.log(data.breeds);
+      });
     }
 
     const speciesSelected = () => {
@@ -51,19 +69,21 @@ const FormAddAnimals =  () => {
 
     
     const breedsOption = () => {
-      return(
-        <option key={breeds} value={breeds}>{breeds}</option>
-      )
+      return breeds.map((breed) => {
+        return(
+          <option key={breed} value={breed}>{breed}</option>
+        )
+      })
     }
 
     const breedsSelected = () => {
       return (
         <>
           <div className="mb-4">
-            <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
-            <select name="species" className="border-2 rounded w-full p-2">
+            <label htmlFor="breedname" className="block text-lg font-semibold mb-2">Espèce</label>
+            <select name="breedname" className="border-2 rounded w-full p-2">
               <option value="">Sélectionnez la race de votre animal</option>
-              {breeds.length > 0 ? breedsOption() : null}
+              {breeds && breeds.length > 0 ? breedsOption() : null}
             </select>
           </div>
         </>
