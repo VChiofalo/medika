@@ -7,7 +7,7 @@ const LogoutPage = () => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       navigate('/');
-    }, 2500);
+    }, 2500);  
 
     return () => clearTimeout(timeoutId);
   }, [navigate]);

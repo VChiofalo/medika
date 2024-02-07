@@ -56,7 +56,7 @@ const Parameter = () => {
       >
         {deconnexionEffectuee && (
           <div style={{ backgroundColor: '#f0f0f0', padding: '10px', marginBottom: '10px', fontSize: '18px' }}>Vous êtes déconnecté.</div>
-        )}
+        )} 
         <div style={{ marginBottom: '20px', fontSize: '24px' }}>
           <div className="button-carousel"></div>
           Mettre fin à la session ?{' '}
