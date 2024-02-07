@@ -5,7 +5,7 @@ export default class PictureRepository{
         return connection.promise().query('INSERT INTO `photos` SET ?', {slug, user_email});
     }
 
-     addAnimalPicture(slug, id_animals){
+    addAnimalPicture(slug, id_animals){
         return connection.promise().query('INSERT INTO `photos` SET ?', {slug, id_animals})
     }
 }

@@ -29,13 +29,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `animals` (
   `id_animals` int NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
+  `first_name` varchar(60) NOT NULL,
+  `last_name` varchar(60) NOT NULL,
   `birthday` date NOT NULL,
   `gender` enum('Male','Female','Other') NOT NULL,
   `mutual` char(50) DEFAULT NULL,
   `breed_name` varchar(50) NOT NULL,
-  `user_email` varchar(50) NOT NULL
+  `user_email` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -91,9 +91,9 @@ INSERT INTO `breed` (`name`, `reference_weight`, `species_name`) VALUES
 
 CREATE TABLE `photos` (
   `id_photos` int NOT NULL,
-  `slug` varchar(50) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `id_animals` int DEFAULT NULL,
-  `user_email` varchar(50) DEFAULT NULL
+  `user_email` varchar(120) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -134,9 +134,9 @@ CREATE TABLE `treatments` (
 --
 
 CREATE TABLE `users` (
-  `email` varchar(50) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `first_name` varchar(60) NOT NULL,
+  `last_name` varchar(60) NOT NULL,
   `password` varchar(255) NOT NULL,
   `two_factor` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
