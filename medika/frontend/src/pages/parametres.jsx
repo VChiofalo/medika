@@ -56,9 +56,10 @@ const Parameter = () => {
       >
         {deconnexionEffectuee && (
           <div style={{ backgroundColor: '#f0f0f0', padding: '10px', marginBottom: '10px', fontSize: '18px' }}>Vous êtes déconnecté.</div>
-        )}
+        )} 
         <div style={{ marginBottom: '20px', fontSize: '24px' }}>
           <div className="button-carousel"></div>
+          Mettre fin à la session ?{' '}
           <Link
             onClick={handleLogout}
             to="/"
@@ -67,7 +68,7 @@ const Parameter = () => {
           >
             <i className="fa-solid fa-user"></i>
             <Typography tag={'p'} customClasses={'mt-4 text-center lg:text-base'} style={{ fontSize: '24px' }}>
-              Mettre fin à la session ?{' '}
+              
               <Link to="/logout" className="text-primary" style={{ fontSize: '24px' }}>
                 Deconnexion
               </Link>
