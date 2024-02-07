@@ -1,18 +1,5 @@
 export default class Animal {
 
-    // constructor(id_animals, first_name, last_name, birthday, gender, mutual, breed_name, user_email) {
-    //     this.id_animals = id_animals;
-    //     this.first_name = first_name;
-    //     this.last_name = last_name;
-    //     this.birthday = birthday;
-    //     this.gender = gender;
-    //     this.mutual = mutual;
-    //     this.breed_name = breed_name;
-    //     this.user_email = user_email;
-    //     this.weight = [];
-
-    // }
-
     getId() {
         return this.id_animals;
     }
@@ -83,6 +70,7 @@ export default class Animal {
     getWeight() {
         return this.weight;
     }
+    
     setWeight(weight) {
         this.weight = weight;
         return this;

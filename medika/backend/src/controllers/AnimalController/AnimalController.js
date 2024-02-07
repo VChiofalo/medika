@@ -1,33 +1,42 @@
 import AnimalRepository from '../../repositories/AnimalRepository.js';
-
+import Animal from '../../entity/Animal.js';
 export default class AnimalController {
 
-    async addAnimal(req, res) {
+    addAnimal(req, res) {
         const animalRepository = new AnimalRepository();
-        try {
-            const { breedname, lastname, firstname, birthdate, gender, weight, userId } = req.body;
-            // Assurez-vous que `userId` est correctement récupéré. Cela peut dépendre de votre système d'authentification.
+        let entity = new Animal();
+        entity.setFirstName(req.body.first_name)
+            .setLastName(req.body.last_name)  
+            .setBirthday(req.body.birthday)
+            .setGender(req.body.gender) 
+            .setMutual(req.body.mutual) 
+            .setBreedName(req.body.breed_name) 
+            .setUserEmail(req.user_email);
+        // const { first_name, last_name, birthday, gender,  mutual, user_email } = req.body;
+        // const useremail = req.user.email;
 
-            // Vérification si un animal avec le même nom pour le même utilisateur existe déjà
-            const existingAnimal = await animalRepository.findAnimalByNameAndUserId(firstname, userId);
+        // Vérification si un animal avec le même nom pour le même utilisateur existe déjà
+        animalRepository.findAnimalByNameAndUserId(req.body.first_name, req.user_email).then((existingAnimal) => {
             if (existingAnimal) {
                 return res.status(400).json({
                     message: "Un animal avec ce nom existe déjà pour cet utilisateur.",
                     error: true
                 });
+            } else {
+                animalRepository.addAnimal(entity).then(() => {
+                    return res.status(200).json({
+                        message: "On va créer un nouveau chien."
+                    }); 
+                })
             }
-
-            // Si aucun animal identique trouvé, procéder à l'ajout
-            await animalRepository.add({ breedname, lastname, firstname, birthdate, gender, weight });
-            res.status(201).json({ message: 'Animal ajouté avec succès !' });
-
-        } catch (error) {
+        }).catch((error) => {
             res.status(500).json({
                 message: `Erreur`,
                 error: true
             });
-        }
+        });
     }
+
 
     async getAnimalById(req, res) {
         const animalRepository = new AnimalRepository();

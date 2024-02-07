@@ -2,20 +2,17 @@ import {useSelector} from "react-redux"
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-const useLogged = () => {
+const useLoggedUserForbidden = () => {
 
     const user = useSelector((state) => state.user.currentUser )
     const navigate = useNavigate()
 
 useEffect(() => {
     
-
-        if(!user || user === null || user.currentUser === null) {
-            navigate('/login')
-        }
-
+    if(user) {
+        navigate('/logout')
+    }
     },[])
-
 }
 
-export default useLogged;
+export default useLoggedUserForbidden;

@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
-import { store } from './store/store.js'
 import { Provider } from 'react-redux'
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -15,16 +14,24 @@ import LoginPage from './pages/login_page.jsx'
 import SignupForm from './pages/signup_form.jsx'
 import AnimalWeightPage from './pages/animal_weight_page.jsx'
 import FormAddAnimals from './components/forms/add_animals/index.jsx'
+import store from './store/store.js';
+import AnimalGallery from './components/animal_gallery/index.jsx';
+import ProfilPageAnimal from './pages/animal_profil_page.jsx';
+import Parameter from './pages/parametres.jsx';
+import LogoutPage from './pages/logoutPage';
+
 
 const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
+      { path: "/logout", element:<LogoutPage/>},
       { path: "/", element:<AccueilPage/>},
-      { path: "/home", element:<Home/>},
+      { path: "/home", element:<AnimalGallery/>},
+      { path: "/animal_profil_page", element:<ProfilPageAnimal/>},
       { path: "/profil", element:<UserProfilPage/>},
       { path: "/poid", element:<AnimalWeightPage/>},
-      { path: "/parametre", element:<p>Paramètres</p>},
+      { path: "/parametre", element:<Parameter/>},
       { path: "/login", element:<LoginPage/>},
       { path: "/register", element:<SignupForm/>},
       { path: "/add_animals", element:<FormAddAnimals/>},
@@ -40,4 +47,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
+   
 )

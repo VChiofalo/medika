@@ -12,12 +12,12 @@ const animalsList = animalsProfilPictures.map((animal) => {
 
 })
     return <>
-        <div className="flex flex-col items-center">   
-            <div className="border-2 rounded w-full">
+        <div className="flex flex-col items-center mt-6">   
+            <div className="rounded w-full">
                 <div className="flex justify-between">
                     <div className="flex">
-                        <button className="flex items-center rounded-full gap-2 p-2 bg-accentuary">
-                            <i className="fa-solid fa-plus fa-lg stroke-0"></i>
+                        <button className="flex items-center rounded-full gap-2 px-4 bg-accentuary">
+                            <div className="bg-white rounded-full p-2 px-3"><i className="fa-solid fa-plus fa-lg text-accentuary"></i></div>
                             <Typography variant="white">Ajouter des photos</Typography>
                         </button>
                     </div>
@@ -30,7 +30,6 @@ const animalsList = animalsProfilPictures.map((animal) => {
                 <div className="flex items-center justify-start px-8 gap-4 flex-wrap">
                     {animalsList}
                 </div>
-                <Typography>Mes compagnons</Typography>
             </div>
 
         </div>

@@ -1,12 +1,16 @@
 import express from 'express';
 import 'dotenv/config';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import routes from './app/routes.js';
 
 
 // Créez une instance de l'application Express
 const app = express();
 app.use(express.json());
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Origines autorisées
 const whitelist = [process.env.URLFRONT];
@@ -21,11 +25,14 @@ const corsOptions = {
 };
 
 /* Middleware CORS appliquez à toutes les routes */
-// app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
+// app.use(cors());
 
 /* Récupération des données en POST */
 app.use(express.urlencoded({ extended: false }));
+
+/* Répertoire static */
+app.use(express.static(path.join(__dirname, 'public')));
 
 /* Routes */
 routes(app);

@@ -4,6 +4,7 @@ import { login } from "../store/slices/userSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import Typography from "../components/common/typography";
+import useLoggedUserForbidden from "../hooks/useLoggedUserForbidden";
 
 const LoginPage = () => {
   const formRef = useRef();
@@ -11,6 +12,8 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+
+  useLoggedUserForbidden()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -26,7 +29,7 @@ const LoginPage = () => {
     };
 
     console.log(body);
-    const request = await fetch("http://localhost:3000/api/login", {
+    const request = await fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +48,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-[#EDEDED] min-h-screen">
       <div
         style={{
           marginBottom: "20px",
@@ -95,7 +98,7 @@ const LoginPage = () => {
             required
             placeholder="Email"
             style={{ marginBottom: "5px" }}
-            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
+            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-[#EDEDED] pr-4 py-2.5"
           />
         </div>
         {error && <p>{error}</p>}
@@ -110,7 +113,7 @@ const LoginPage = () => {
             required
             placeholder="Mot de passe"
             style={{ marginBottom: "5px" }}
-            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-white pr-4 py-2.5"
+            className="placeholder:text-base placeholder:text-black focus:outline-none border-b border-[#B7B7B7] bg-[#EDEDED] pr-4 py-2.5"
           />
         </div>
 
