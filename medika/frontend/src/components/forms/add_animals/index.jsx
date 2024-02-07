@@ -1,9 +1,17 @@
-import React, { useRef } from 'react';
+import {useRef, useState, useEffect} from 'react';
 import Typography from "../../common/typography";
 import Header from "../../header";
+import fetchApi from '../../../services/fetchApi.js';
 
-const FormAddAnimals = () => {
+const FormAddAnimals =  () => {
     const formRef = useRef(null);
+    const [error, setError] = useState(null);
+    const [species, setSpecies] = useState([]);
+    useEffect(() => {
+      fetchApi('http://localhost:3000/api/species', 'GET').then(data => setSpecies(data.species));
+    }, []);
+   
+     
     const handleSubmit = async (event) => {
         event.preventDefault();
         
@@ -14,10 +22,17 @@ const FormAddAnimals = () => {
         const birthdate = data.get("birthdate");
         const gender = data.get("gender");
 
-        // Traitement des données ici
+        const body = { breedname, lastname, firstname, birthdate, gender };
 
         console.log('Formulaire soumis', { breedname, lastname, firstname, birthdate, gender });
     };
+    const speciesSelected= () => {
+        return species.map((specie) => {
+           return (
+           <option key={specie} value={specie}>{specie}</option>
+           )
+        });
+    }
         return (
             <>
               <Header />
@@ -26,11 +41,10 @@ const FormAddAnimals = () => {
                   <Typography variant="h1" className="text-center mb-6">Ajouter un animal</Typography>
                   <form ref={formRef} onSubmit={handleSubmit}>
                     <div className="mb-4">
-                      <label htmlFor="breedname" className="block text-lg font-semibold mb-2">Espèce</label>
-                      <select name="breedname" className="border-2 rounded w-full p-2">
-                        <option value="dog">Chien</option>
-                        <option value="cat">Chat</option>
-                        <option value="penguin">Penguin</option>
+                      <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
+                      <select name="species" className="border-2 rounded w-full p-2">
+                        <option value="">Selectionner l'espece de votre animal</option>
+                        {species.length > 0 ? speciesSelected() : null}
                       </select>
                     </div>
                     <div className="mb-4 hidden">
