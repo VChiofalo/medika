@@ -16,7 +16,7 @@ export default class PictureController{
                
             }).catch((error) => {
                 res.status(500).json({ 
-                    message: 'Erreur :'+error.message,
+                    message: 'Erreur :',
                     error: true
                 });
             });
