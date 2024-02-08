@@ -26,23 +26,26 @@ const Parameter = () => {
         }}
         className="bg-primary py-6 rounded-b-lg"
       >
-        <div className="flex justify-center">
-          <img
-            src="/images/Medika.png"
-            alt="Main Logo"
-            style={{ width: '90px', height: '25px', marginRight: '0px' }}
-          />
-          <img
-            src="/images/Frame18.png"
-            alt="Second Logo"
-            style={{
-              width: '20px',
-              height: '20px',
-              marginLeft: '0px',
-              marginBottom: '5px',
-            }}
-          />
-        </div>
+        <Link to="/home">
+
+          <div className="flex justify-center">
+            <img
+              src="/images/Medika.png"
+              alt="Main Logo"
+              style={{ width: '90px', height: '25px', marginRight: '0px' }}
+            />
+            <img
+              src="/images/Frame18.png"
+              alt="Second Logo"
+              style={{
+                width: '20px',
+                height: '20px',
+                marginLeft: '0px',
+                marginBottom: '5px',
+              }}
+            />
+          </div>
+        </Link>
       </div>
       <div
         style={{
