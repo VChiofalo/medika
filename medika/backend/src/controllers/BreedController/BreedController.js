@@ -3,7 +3,6 @@ import BreedRepository from "../../repositories/BreedRpository.js"
 export default class BreedController{
     async getBreedProccess(req, res){
         const breedRepository = new BreedRepository();
-        console.log("req.body : ", req.body.species_name);
         try {
             breedRepository.getBreedBySpecies(req.body.species_name).then((breeds)=>{
                 if (breeds) {
