@@ -6,7 +6,7 @@
 function AnimalWeightPage() {
     
     return <>
-        <Header/>
+        <Header title="Poid"/>
         <GraphCard/>
         <div className='flex justify-center'>
             <WeightCard/>
