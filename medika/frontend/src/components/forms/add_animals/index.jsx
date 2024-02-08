@@ -93,7 +93,7 @@ const FormAddAnimals =  () => {
     }
         return (
             <>
-              <Header />
+              <Header key="header" title="Ajouter un animal" linkTo="/home"/>
               <div className="flex w-full justify-center pt-8">
                 <div className="flex flex-col w-full max-w-xl p-8 bg-white rounded-lg shadow-md">
                   <Typography variant="h1" className="text-center mb-6">Ajouter un animal</Typography>
