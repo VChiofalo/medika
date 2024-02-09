@@ -1,4 +1,5 @@
 import {useRef, useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom'; // Importez useNavigate
 import Typography from "../../common/typography";
 import Header from "../../header";
 import fetchApi from '../../../services/fetchApi.js';
@@ -10,15 +11,23 @@ const FormAddAnimals =  () => {
     const [isVisible, setIsVisible] = useState(false);
     const [species, setSpecies] = useState([]);
     const [breeds, setBreeds] = useState([]);
+    const navigate = useNavigate(); 
+
+
+    
     useEffect(() => {
-      fetchApi('http://localhost:3000/api/species', 'GET').then(data => setSpecies(data.species));
+      fetchApi('http://localhost:3000/api/species', 'GET').then(data => {
+        if (data && data.species) {
+          setSpecies(data.species);
+        }
+      });
     }, []);
    
      
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // const lsParse = JSON.parse(localStorage.getItem('storeSaved'))
+        
         
         const data = new FormData(formRef.current);
         const first_name = data.get("firstname");
@@ -26,13 +35,15 @@ const FormAddAnimals =  () => {
         const birthday = data.get("birthdate");
         const gender = data.get("gender");
         const breed_name = data.get("breedname");
+        const user_email = JSON.parse(localStorage.getItem('storeSaved')).user.currentUser.email; 
 
         const body = {
           first_name,
           last_name,
           birthday,
           gender,
-          breed_name
+          breed_name,
+          user_email
         };
 
         fetchApi('http://localhost:3000/api/animal', 'POST', body).then((response) => {
@@ -40,31 +51,26 @@ const FormAddAnimals =  () => {
           console.log("response")
           console.log(response.message)
           navigate("/home")
-        })
 
-        console.log('Formulaire soumis', {
-          first_name,
-          last_name,
-          birthday,
-          gender,
-          breed_name
-        });
+        }).catch(error => console.error("Erreur lors de l'enregistrement de l'animal", error));
     };
 
+  
     const handleSelectChange = ()=>{
       const data = new FormData(formRef.current);
       const specie = data.get("species");
 
       const body = {species_name: specie};
 
-      console.log(body);
 
-      setIsVisible(true);
-      fetchApi('http://localhost:3000/api/breeds', 'POST', body).then(data => {
+
+    fetchApi('http://localhost:3000/api/breeds', 'POST', body).then(data => {
+      if (data && data.breeds) {
+        setIsVisible(true);
         setBreeds(data.breeds);
-        console.log(data.breeds);
-      });
-    }
+      }
+    });
+  };
 
     const speciesSelected = () => {
         return species.map((specie) => {
