@@ -6,8 +6,7 @@ import Typography from "../../common/typography";
 function UserCard() {
 
 const animalsProfilPictures = ["images/images_placeholder/doge.jpg", "images/penguin.jpg", "images/hampfter.jpg"]
-
-const animals = animalsProfilPictures.length
+lsProfilPictures.length
 const treatements = 2
 const [userfirstname, setUserfirstname] = useState("")
 const [userlastname, setUserlastname] = useState("")

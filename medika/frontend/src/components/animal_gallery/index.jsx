@@ -28,6 +28,7 @@ function AnimalGallery() {
         },
     ];
 
+
     /*fetchApi('http://localhost:3000/api/animal/pictures', 'GET').then((data) => {
         
         console.log(data)//
@@ -38,7 +39,7 @@ function AnimalGallery() {
         console.log(data)
         //setAnimals(data)
         })*/
-  
+
     const infolist = info.map((info) => {
         return(
             <>
