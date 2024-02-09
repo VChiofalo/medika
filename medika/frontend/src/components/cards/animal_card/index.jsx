@@ -1,10 +1,20 @@
 import Typography from "../../common/typography"
-
-function AnimalCard({ name, birthday, breed, gender }) {
-    name = 'Luna'
-    birthday = "1 dec 1999"
-    breed = "wolf"
-    gender = 'Male'
+import fetchApi from "../../../services/fetchApi"
+import { useState } from "react";
+function AnimalCard() {
+   
+   const [gender, setGender] = useState("");
+    const [name, setName] = useState("");
+    const [breed, setBreed] = useState("");
+    const [birthday, setBirthday] = useState("");
+    fetchApi('http://localhost:3000/api/animals', 'GET').then((data) => {
+        setGender(data.gender);
+        setName(data.first_name+" "+data.last_name);
+        setBreed(data.breed_name);
+        setBirthday(data.birthday);
+    console.log(data)//
+   
+  })
     return <>
         <div className="flex flex-col items-center relative mb-4">
             <div className="bg-primary w-full h-32 rounded-b-3xl absolute z-0"></div>
