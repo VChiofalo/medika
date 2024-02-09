@@ -2,9 +2,9 @@
 import { Link } from "react-router-dom";
 import useLogged from "../../hooks/useLogged";
 import Typography from "../common/typography";
+import { useState } from "react";
+import fetchApi from "../../services/fetchApi";
 function AnimalGallery() {
-
-    useLogged();
     const info = [
         {
             name: "Luna",
@@ -21,6 +21,16 @@ function AnimalGallery() {
             image: "images/chient.png",
         },
     ];
+
+   
+
+    /*fetchApi('http://localhost:3000/api/animal/pictures', 'GET').then((data) => {
+        
+        console.log(data)//
+       
+      })*/
+     
+
     const infolist = info.map((info) => {
         return(
             <>
