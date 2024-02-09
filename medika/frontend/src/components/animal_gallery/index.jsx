@@ -35,7 +35,7 @@ function AnimalGallery() {
     const infolist = info.map((info) => {
         return(
             <>
-
+                <Link to="/animal_profil_page">
                     <div className="">
                         <div className="rounded-xl shadow-lg">
                             <div className="p5 flex flex-col">
@@ -76,6 +76,7 @@ function AnimalGallery() {
 
                         </div>
                     </div>
+                </Link>
             </>
         )
     })
@@ -129,11 +130,10 @@ function AnimalGallery() {
                     <button className="bg-primary p-2 rounded-full text-white px-8 py-3 font-bold">hamster</button>
                     <button className="bg-primary p-2 rounded-full text-white px-8 py-3 font-bold">Lapin</button>
                 </div>
-                <Link to="/animal_profil_page">
-                    <div className="grid grid-cols-1  gap-8  md:grid-cols-2 lg:grid-cols-3 p-4  mx-auto">
+                
+                <div className="grid grid-cols-1  gap-8  md:grid-cols-2 lg:grid-cols-3 p-4  mx-auto">
                     {infolist}
-                    </div>
-                </Link>
+                </div>
                           
             </>
         )

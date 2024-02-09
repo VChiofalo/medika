@@ -4,7 +4,7 @@ import fetchApi from "../../../services/fetchApi";
 
 
 function PicturesGalleryCard() {
-const animalsProfilPictures = ["images/images_placeholder/doge.jpg", "images/images_placeholder/nyan.png", "images/images_placeholder/dogSamurai.jpeg","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png",]
+const animalsProfilPictures = ["images/images_placeholder/doge.jpg", "images/penguin.jpg", "images/hampfter.jpg","images/chient.png"]
 //const animals = animalsProfilPictures.length
 
 const animalsList = animalsProfilPictures.map((animal) => {
