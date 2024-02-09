@@ -3,8 +3,8 @@ import fetchApi from "../../../services/fetchApi";
 import Typography from "../../common/typography";
 
 
-function UserCard({animalsProfilPictures}) {
-animalsProfilPictures = ["images/images_placeholder/doge.jpg", "images/images_placeholder/nyan.png", "images/images_placeholder/dogSamurai.jpeg"]
+function UserCard() {
+const animalsProfilPictures = ["images/images_placeholder/doge.jpg", "images/images_placeholder/nyan.png", "images/images_placeholder/dogSamurai.jpeg"]
 const animals = animalsProfilPictures.length
 const treatements = 2
 const [userfirstname, setUserfirstname] = useState("")
