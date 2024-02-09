@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Typography from "../../common/typography";
+import fetchApi from "../../../services/fetchApi";
 
 
 function PicturesGalleryCard() {
 const animalsProfilPictures = ["images/images_placeholder/doge.jpg", "images/images_placeholder/nyan.png", "images/images_placeholder/dogSamurai.jpeg","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png","images/images_placeholder/nyan.png",]
-const animals = animalsProfilPictures.length
+//const animals = animalsProfilPictures.length
 
 const animalsList = animalsProfilPictures.map((animal) => {
     return(<>
@@ -13,17 +14,10 @@ const animalsList = animalsProfilPictures.map((animal) => {
 
 })
 const [open, setOpen] = useState(false)
-const openPopup = () => {
-    setOpen(true)
+const openPopup = () => setOpen(true)
+const closePopup = () => setOpen(false)
     
-}
-const closePopup = () => {
-    setOpen(false)
-    
-}
-function poPup(
-    
-) {
+function poPup() {
         return (
         <div className="absolute modal  rounded-lg bg-white border border-gray-200 shadow-lg">
             <div className="flex items-center gap-4 p-4 overlay">
@@ -31,10 +25,12 @@ function poPup(
                     <label className="block"><Typography tag="h3">Photo de votre animal</Typography></label>
                         <input
                             type="file"
+                            id="picture"
+                            name="picture"
                             placeholder="image"
                             className="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
                             />
-                    <button className="rounded-full bg-primary px-3 py-2 mt-4">
+                    <button className="rounded-full bg-primary px-3 py-2 mt-4" onClick={handlePicture}>
                         <Typography>Enrigistrer</Typography>
                     </button>
                 </div>
@@ -45,6 +41,19 @@ function poPup(
         </div>
         )
 }
+const pictureRef = useRef();
+const data = new FormData(pictureRef.current);
+const handlePicture = () => {
+    const picture = data.get("picture");
+    const id_animals = data.get("id_animals");
+    console.log(picture)
+    const body = {picture,id_animals}
+    fetchApi('http://localhost:3000/api/animal/picture', 'POST', body).then(data => {
+        console.log("data");    
+        console.log(data);
+          }); 
+}
+//---------------------------------------------------------------
     return <>
         <div className="flex flex-col items-center mt-6">   
             <div className="rounded w-full">

@@ -5,6 +5,7 @@ import PictureController from "../src/controllers/PictureController/PictureContr
 import SpeciesController from "../src/controllers/SpeciesController/SpeciesController.js";
 import BreedController from "../src/controllers/BreedController/BreedController.js";
 import { userExists } from "../src/services/jwtService.js";
+import UserController from "../src/controllers/UserController/UserController.js"
 import { upload } from "../src/services/multerService.js";
 
 export default (app) => {
@@ -14,6 +15,7 @@ export default (app) => {
      const pictureController = new PictureController();
      const speciesController = new SpeciesController();
      const breedController = new BreedController();
+     const userController = new UserController();
 
      app.post('/register', (req, res) => registerController.registerUserProcess(req, res));
      app.post('/login', (req, res) => authenticationController.loginProcess(req, res));

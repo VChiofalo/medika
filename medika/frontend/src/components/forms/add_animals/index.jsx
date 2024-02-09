@@ -6,10 +6,10 @@ import fetchApi from '../../../services/fetchApi.js';
 
 const FormAddAnimals =  () => {
     const formRef = useRef(null);
+    const navigate = useNavigate()
     const [isVisible, setIsVisible] = useState(false);
     const [species, setSpecies] = useState([]);
     const [breeds, setBreeds] = useState([]);
-    const navigate = useNavigate(); 
 
 
     
@@ -44,18 +44,13 @@ const FormAddAnimals =  () => {
           user_email
         };
 
-      
-        fetchApi('http://localhost:3000/api/animal', 'POST', body)
-        .then(response => {
-          if (!response.error) {
-            console.log('Animal ajouté avec succés', response);
-            navigate('/home ');            // Gérer l'erreur dans l'UI
-          } else {
-            console.error(response.message);
-            // Gérer la réussite (par exemple, en redirigeant ou en affichant un message de succès)
-          }
-        })
-        .catch(error => console.error("Erreur lors de l'enregistrement de l'animal", error));
+        fetchApi('http://localhost:3000/api/animal', 'POST', body).then((response) => {
+          //response.json();
+          console.log("response")
+          console.log(response.message)
+          navigate("/home")
+
+        }).catch(error => console.error("Erreur lors de l'enregistrement de l'animal", error));
     };
 
   
@@ -115,7 +110,7 @@ const FormAddAnimals =  () => {
                     <div className="mb-4">
                       <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
                       <select name="species" className="border-2 rounded w-full p-2" onChange={handleSelectChange}>
-                        <option value="">Selectionner l'espece de votre animal</option>
+                        <option value="">Selectionner l `&apos;` espece de votre animal</option>
                         {species.length > 0 ? speciesSelected() : null}
                       </select>
                     </div>

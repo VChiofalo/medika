@@ -38,8 +38,10 @@ export default class AnimalController {
     async getAnimalById(req, res) {
         const animalRepository = new AnimalRepository();
         try {
+
             const id  = 1;
             const animal = await animalRepository.getAnimalById(id);
+
             if (animal) {
                 res.status(200).json(animal);
             } else {
