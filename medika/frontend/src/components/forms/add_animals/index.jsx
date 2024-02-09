@@ -1,4 +1,5 @@
 import {useRef, useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom'; // Importez useNavigate
 import Typography from "../../common/typography";
 import Header from "../../header";
 import fetchApi from '../../../services/fetchApi.js';
@@ -7,39 +8,72 @@ const FormAddAnimals =  () => {
     const formRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
     const [species, setSpecies] = useState([]);
-    const [breeds, setBreeds] = useState([])
+    const [breeds, setBreeds] = useState([]);
+    const navigate = useNavigate(); 
+
+
+    
     useEffect(() => {
-      fetchApi('http://localhost:3000/api/species', 'GET').then(data => setSpecies(data.species));
+      fetchApi('http://localhost:3000/api/species', 'GET').then(data => {
+        if (data && data.species) {
+          setSpecies(data.species);
+        }
+      });
     }, []);
    
      
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        
         
         const data = new FormData(formRef.current);
-        const breedname = data.get("breedname");
-        const lastname = data.get("lastname");
-        const firstname = data.get("firstname");
-        const birthdate = data.get("birthdate");
+        const first_name = data.get("firstname");
+        const last_name = data.get("lastname");
+        const birthday = data.get("birthdate");
         const gender = data.get("gender");
+        const breed_name = data.get("breedname");
+        const user_email = JSON.parse(localStorage.getItem('storeSaved')).user.currentUser.email; 
 
-        const body = { breedname, lastname, firstname, birthdate, gender };
+        const body = {
+          first_name,
+          last_name,
+          birthday,
+          gender,
+          breed_name,
+          user_email
+        };
 
-        console.log('Formulaire soumis', { breedname, lastname, firstname, birthdate, gender });
+      
+        fetchApi('http://localhost:3000/api/animal', 'POST', body)
+        .then(response => {
+          if (!response.error) {
+            console.log('Animal ajouté avec succés', response);
+            navigate('/home ');            // Gérer l'erreur dans l'UI
+          } else {
+            console.error(response.message);
+            // Gérer la réussite (par exemple, en redirigeant ou en affichant un message de succès)
+          }
+        })
+        .catch(error => console.error("Erreur lors de l'enregistrement de l'animal", error));
     };
 
-    const handleSelectChange = async ()=>{
+  
+    const handleSelectChange = ()=>{
       const data = new FormData(formRef.current);
       const specie = data.get("species");
 
-      const specieSelect = specie;
+      const body = {species_name: specie};
 
-      console.log(JSON.stringify(specieSelect));
 
-      setIsVisible(true);
-      fetchApi('http://localhost:3000/api/breeds', 'POST', specieSelect).then(data => setBreeds(data.breeds));
-      console.log(breeds);
-    }
+
+    fetchApi('http://localhost:3000/api/breeds', 'POST', body).then(data => {
+      if (data && data.breeds) {
+        setIsVisible(true);
+        setBreeds(data.breeds);
+      }
+    });
+  };
 
     const speciesSelected = () => {
         return species.map((specie) => {
@@ -51,19 +85,21 @@ const FormAddAnimals =  () => {
 
     
     const breedsOption = () => {
-      return(
-        <option key={breeds} value={breeds}>{breeds}</option>
-      )
+      return breeds.map((breed) => {
+        return(
+          <option key={breed} value={breed}>{breed}</option>
+        )
+      })
     }
 
     const breedsSelected = () => {
       return (
         <>
           <div className="mb-4">
-            <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
-            <select name="species" className="border-2 rounded w-full p-2">
+            <label htmlFor="breedname" className="block text-lg font-semibold mb-2">Espèce</label>
+            <select name="breedname" className="border-2 rounded w-full p-2">
               <option value="">Sélectionnez la race de votre animal</option>
-              {breeds.length > 0 ? breedsOption() : null}
+              {breeds && breeds.length > 0 ? breedsOption() : null}
             </select>
           </div>
         </>
@@ -71,7 +107,7 @@ const FormAddAnimals =  () => {
     }
         return (
             <>
-              <Header />
+              <Header key="header" title="Ajouter un animal" linkTo="/home"/>
               <div className="flex w-full justify-center pt-8">
                 <div className="flex flex-col w-full max-w-xl p-8 bg-white rounded-lg shadow-md">
                   <Typography variant="h1" className="text-center mb-6">Ajouter un animal</Typography>
