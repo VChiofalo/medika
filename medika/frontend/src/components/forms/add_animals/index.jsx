@@ -11,8 +11,6 @@ const FormAddAnimals =  () => {
     const [breeds, setBreeds] = useState([]);
     const navigate = useNavigate(); 
 
-
-    
     useEffect(() => {
       fetchApi('http://localhost:3000/api/species', 'GET').then(data => {
         if (data && data.species) {

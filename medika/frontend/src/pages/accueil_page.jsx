@@ -29,7 +29,7 @@ function AccueilPage() {
           setIsLoading(false);
            interval = setInterval(() => {
             setCurrentPathIndex((prevIndex) => (prevIndex + 1) % path.length);
-          }, 6000);
+          }, 4000);
         });
         console.log('Toutes les images ont été chargées avec succès !');
       } catch (error) {
