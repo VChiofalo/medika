@@ -1,12 +1,11 @@
-import UserRepository from "../../repositories/UserRepository";
+import UserRepository from "../../repositories/UserRepository.js";
 
 export default class UserController {
 
     async getUserByEmail(req, res) {
         const userRepository = new UserRepository();
         try {
-            const { email } = req.params;
-            const user = await userRepository.getUserByEmail(email);
+            const user = await userRepository.getUserByEmail(req.user_email);
             if (!user) {
                 return res.status(404).json({
                     message: 'Utilisateur introuvable',

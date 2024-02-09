@@ -38,8 +38,7 @@ export default class AnimalController {
     async getAnimalById(req, res) {
         const animalRepository = new AnimalRepository();
         try {
-            const { id } = req.params;
-            const animal = await animalRepository.getAnimalById(id);
+            const animal = await animalRepository.getAnimalById(req.body.id_animals);
             if (animal) {
                 res.status(200).json(animal);
             } else {
