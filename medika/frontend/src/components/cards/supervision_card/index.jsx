@@ -4,16 +4,14 @@ import VaccineCard from '../vaccine_card'
 
 import { Link } from "react-router-dom";
 
-function SupervisionCard({ date, overview,name }) {
-    name = 'Luna'
-    overview = 'Ceci est un traitement'
-    date = '13 janv 2007'
+function SupervisionCard() {
+    const date = '13 janv 2007'
     return <>
         <div className="flex justify-center items-center">
 
             <div className="flex flex-col items-center gap-4 rounded-t-2xl w-full bg-background pb-4" >
                 <div className="flex justify-center p-2 pt-4">
-                    <Typography variant="accentuary">Les donées de {name}</Typography>
+                    <Typography variant="accentuary">Les donées de Luna</Typography>
                 </div>
 
                 <div className='flex justify-center'>
@@ -31,11 +29,11 @@ function SupervisionCard({ date, overview,name }) {
                     <div className="flex flex-col items-center divide-y divide-black">
                         <div className="flex justify-between w-full">
                             <Typography>{date}</Typography>
-                            <Typography>{overview}</Typography>
+                            <Typography>Ceci est un traitement</Typography>
                         </div>
                         <div className="flex justify-between w-full">
                             <Typography>{date}</Typography>
-                            <Typography>{overview}</Typography>
+                            <Typography>Ceci est un traitement</Typography>
                         </div>
                     </div>
                 </div>
@@ -49,7 +47,7 @@ function SupervisionCard({ date, overview,name }) {
                     <div className="flex flex-col items-center divide-y divide-black">
                         <div className="flex justify-between w-full">
                             <Typography>{date}</Typography>
-                            <Typography>{overview}</Typography>
+                            <Typography>Ceci est un rappel</Typography>
                         </div>
                     </div>
                 </div>
@@ -63,11 +61,11 @@ function SupervisionCard({ date, overview,name }) {
                     <div className="flex flex-col items-center divide-y divide-black">
                         <div className="flex justify-between w-full">
                             <Typography>{date}</Typography>
-                            <Typography>{overview}</Typography>
+                            <Typography>Ceci est une note</Typography>
                         </div>
                         <div className="flex justify-between w-full">
                             <Typography>{date}</Typography>
-                            <Typography>{overview}</Typography>
+                            <Typography>Ceci est une note</Typography>
                         </div>
                     </div>
                 </div>
