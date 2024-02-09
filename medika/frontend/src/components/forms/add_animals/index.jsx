@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'; // Importez useNavigate
 import Typography from "../../common/typography";
 import Header from "../../header";
 import fetchApi from '../../../services/fetchApi.js';
-import { useNavigate } from 'react-router-dom';
 
 const FormAddAnimals =  () => {
     const formRef = useRef(null);
@@ -11,7 +10,6 @@ const FormAddAnimals =  () => {
     const [isVisible, setIsVisible] = useState(false);
     const [species, setSpecies] = useState([]);
     const [breeds, setBreeds] = useState([]);
-    const navigate = useNavigate(); 
 
 
     
@@ -112,7 +110,7 @@ const FormAddAnimals =  () => {
                     <div className="mb-4">
                       <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
                       <select name="species" className="border-2 rounded w-full p-2" onChange={handleSelectChange}>
-                        <option value="">Selectionner l'espece de votre animal</option>
+                        <option value="">Selectionner l `&apos;` espece de votre animal</option>
                         {species.length > 0 ? speciesSelected() : null}
                       </select>
                     </div>
