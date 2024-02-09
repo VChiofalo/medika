@@ -2,9 +2,11 @@ import {useRef, useState, useEffect} from 'react';
 import Typography from "../../common/typography";
 import Header from "../../header";
 import fetchApi from '../../../services/fetchApi.js';
+import { useNavigate } from 'react-router-dom';
 
 const FormAddAnimals =  () => {
     const formRef = useRef(null);
+    const navigate = useNavigate()
     const [isVisible, setIsVisible] = useState(false);
     const [species, setSpecies] = useState([]);
     const [breeds, setBreeds] = useState([]);
@@ -34,7 +36,10 @@ const FormAddAnimals =  () => {
         };
 
         fetchApi('http://localhost:3000/api/animal', 'POST', body).then((response) => {
-          response.json();
+          //response.json();
+          console.log("response")
+          console.log(response.message)
+          navigate("/home")
         })
 
         console.log('Formulaire soumis', {

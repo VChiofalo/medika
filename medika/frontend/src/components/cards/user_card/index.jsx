@@ -1,12 +1,32 @@
+import { useEffect, useState } from "react";
+import fetchApi from "../../../services/fetchApi";
 import Typography from "../../common/typography";
 
 
-function UserCard({animalsProfilPictures, userfirstname, userlastname}) {
+function UserCard({animalsProfilPictures}) {
 animalsProfilPictures = ["images/images_placeholder/doge.jpg", "images/images_placeholder/nyan.png", "images/images_placeholder/dogSamurai.jpeg"]
 const animals = animalsProfilPictures.length
 const treatements = 2
-userfirstname = "Martin"
-userlastname = "Cameron"
+const [userfirstname, setUserfirstname] = useState("")
+const [userlastname, setUserlastname] = useState("")
+const [userPicture,setUserPicture] = useState([])
+
+fetchApi('http://localhost:3000/api/users', 'GET').then((data) => {
+          //response.json();
+          /*console.log("data")
+          console.log(data)*/
+          setUserfirstname(data.first_name)
+          setUserlastname(data.last_name)
+        })
+        useEffect(() => {
+            fetchApi('http://localhost:3000/api/user/pictures', 'GET').then((data) => {
+                        //response.json();
+                        console.log("picture")
+                        console.log(data.pictures[0])
+                        setUserPicture(data.pictures[data.pictures.length-1])
+                      })
+          }, []);
+
 
 const animalsList = animalsProfilPictures.map((animal) => {
     return(<>
@@ -19,7 +39,7 @@ const animalsList = animalsProfilPictures.map((animal) => {
             <div className="flex flex-col items-center  rounded-3xl w-5/12 pb-4 bg-gradient-to-l from-primary to-secondary">
                 <div className="flex items-center relative mb-32 w-[1000px]">
                     <img src="images/images_placeholder/stupidDog.jpg" className="w-full relative rounded-b-[100px]" alt="" />
-                    <img src="images/images_placeholder/user.png" className="w-60 rounded-full border-4 border-white absolute inset-x-2/4 transform -translate-x-1/2 bottom-0 translate-y-1/2" alt="" />
+                    <img src={`http://localhost:3000${userPicture}`} className="w-60 rounded-full border-4 border-white absolute inset-x-2/4 transform -translate-x-1/2 bottom-0 translate-y-1/2" alt="" />
                 </div>
                 <Typography variant="white" tag="h3">{userlastname}</Typography>
                 <Typography variant="white">{userfirstname}</Typography>

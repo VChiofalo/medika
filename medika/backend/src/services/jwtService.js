@@ -4,9 +4,9 @@ export function userExists(req, res, next) {
     // Récupération du token dans le cookie
     console.log(req.headers);
     let autorizationHeader = req.headers.authorization;
-    console.log(autorizationHeader);
+    //console.log(autorizationHeader);
     const token = autorizationHeader.split(' ')[1]; // 'bearer JWT'
-    console.log(token);
+    //console.log(token);
     // Si le cookie (jwt) n'existe pas
     // if (token == null) req.user = null;
     jwt.verify(token, process.env.JWT_SECRET, (err, dataJwt) => { 
