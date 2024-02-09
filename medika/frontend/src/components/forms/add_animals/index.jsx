@@ -111,7 +111,7 @@ const FormAddAnimals =  () => {
                       <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
                       <select name="species" className="border-2 rounded w-full p-2" onChange={handleSelectChange}>
                         <option value="">Selectionner l &apos; espece de votre animal</option>
-                        {species.length > 0 ? speciesSelected() : null}
+                          {species.length > 0 ? speciesSelected() : null}
                       </select>
                     </div>
                     {isVisible ? breedsSelected() : null}
