@@ -91,7 +91,7 @@ const FormAddAnimals =  () => {
       return (
         <>
           <div className="mb-4">
-            <label htmlFor="breedname" className="block text-lg font-semibold mb-2">Espèce</label>
+            <label htmlFor="breedname" className="block text-lg font-semibold mb-2">Race</label>
             <select name="breedname" className="border-2 rounded w-full p-2">
               <option value="">Sélectionnez la race de votre animal</option>
               {breeds && breeds.length > 0 ? breedsOption() : null}
@@ -110,7 +110,7 @@ const FormAddAnimals =  () => {
                     <div className="mb-4">
                       <label htmlFor="species" className="block text-lg font-semibold mb-2">Espèce</label>
                       <select name="species" className="border-2 rounded w-full p-2" onChange={handleSelectChange}>
-                        <option value="">Selectionner l `&apos;` espece de votre animal</option>
+                        <option value="">Selectionner l &apos; espece de votre animal</option>
                         {species.length > 0 ? speciesSelected() : null}
                       </select>
                     </div>
